@@ -1,0 +1,528 @@
+\documentclass[journal=jpcafh]{achemso}
+
+\usepackage{booktabs}
+\usepackage{paralist}
+\usepackage{nicefrac}
+\usepackage{hyperref}
+\usepackage{listofitems}
+\setsepchar{,}
+
+\usepackage{subcaption}
+\newcounter{subscheme}
+\renewcommand{\thesubfigure}{\alph{subfigure}}
+\renewcommand{\thesubscheme}{\thescheme\alph{subscheme}}
+
+\usepackage{siunitx}
+\DeclareSIUnit \au{a.u.}
+
+\usepackage[version=4]{mhchem}
+\usepackage{braket}
+
+\usepackage{tikz}
+
+\allowdisplaybreaks
+
+
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+
+\title{Influence of symmetry and electronic structure parameters on NLO properties: insights from the few state approximation\\Supporting information}
+\date{Version of \today}
+\author{Pierre Beaujean}
+\author{Benoît Champagne}
+\email{benoit.champagne@unamur.be}
+\affiliation{Laboratory of Theoretical Chemistry, 
+	Unit of Theoretical and Structural Physical Chemistry, 
+	Namur Institute of Structured Matter, 
+	University of Namur, 
+	Rue de Bruxelles 61, B-5000 Namur, Belgium}
+	
+\SectionNumbersOn
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section{Derivation of the different NLO tensors for the VB-$n$CT models}
+
+\subsection{Ground state, transition, and excited state dipole moments}
+
+\subsubsection{2-state $C_{\infty v}$ systems}
+
+The MOs are:\begin{equation}
+	\begin{pmatrix}
+		\ket{0} \\ \ket{f}
+	\end{pmatrix} =
+	\begin{pmatrix}
+		\sqrt{\frac{1-m_{CT}}{2}}  & \sqrt{\frac{1+m_{CT}}{2}} \\
+		\sqrt{\frac{1+m_{CT}}{2}} & -\sqrt{\frac{1-m_{CT}}{2}}  
+	\end{pmatrix} \,\begin{pmatrix}
+	\ket{\phi_{VB}} \\ \ket{\phi_{CT}}
+	\end{pmatrix}.
+\end{equation}
+Therefore,
+\begin{align}
+	\mu_{00} &= \braket{0|\hat{\mu}|0} 
+	%= \sin^2\delta\,\braket{\psi_{CT}|\hat\mu|\psi_{CT}} 
+	= \mu_{CT}\,\sin^2\delta
+	= \ell_{CT}\,\mu_{CT}
+	= \frac{1+m_{CT}}{2}\,\mu_{CT}\\
+	\mu_{0f} &= \braket{0|\hat{\mu}|f} 
+	%= \cos\delta\sin\delta\,\braket{\psi_{CT}|\hat\mu|\psi_{CT}} 
+	= -\frac{1}{2}\,\mu_{CT}\,\sin(2\delta) 
+	= -\mu_{CT}\sqrt{\ell_{CT}(1-\ell_{CT})}
+	= -\frac{\mu_{CT}}{2}\,\sqrt{1-m_{CT}^2}\\
+	\mu_{ff} &= \braket{f|\hat{\mu}|f} 
+	%= \cos^2\delta\,\braket{\psi_{CT}|\hat\mu|\psi_{CT}} 
+	= \mu_{CT}\,\cos^2\delta
+	= (1-\ell_{CT})\,\mu_{CT}
+	= \frac{1-m_{CT}}{2}\,\mu_{CT} 
+	\end{align}
+	and finally:
+	\begin{align}
+	\bar\mu_{ff} &= \mu_{ff} - \mu_{00} = \mu_{CT}\,\cos(2\delta) 
+	= (1-2\ell_{CT})\,\mu_{CT} 
+	= -m_{CT}\,\mu_{CT}.
+\end{align}
+
+\subsubsection{3-state $C_{2v}$ system}
+
+The MOs are:\begin{equation*}
+	\begin{pmatrix}
+		\ket{0} \\ \ket{e} \\ \ket{f}
+	\end{pmatrix} =
+	\begin{pmatrix}
+		\sqrt{\frac{1-m_{CT}}{2}}  & \sqrt{\frac{1+m_{CT}}{4}}  & \sqrt{\frac{1+m_{CT}}{4}} \\
+		0 & -\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}\\
+		\sqrt{\frac{1+m_{CT}}{2}} & -\sqrt{\frac{1-m_{CT}}{4}}   & -\sqrt{\frac{1-m_{CT}}{4}}  
+	\end{pmatrix} \,\begin{pmatrix}
+		\ket{\phi_{VB}} \\ \ket{\phi_{CT,1}} \\ \ket{\phi_{CT,2}}
+	\end{pmatrix}.
+\end{equation*}
+Therefore,
+\begin{align}
+	\vec\mu_{00} &= \braket{0|\hat{\mu}|0} \nonumber\\
+	&= \mu_{CT}\sin^2\delta\,(0,0,\cos\theta)^T 
+	= 2\,\ell_{CT}\,\mu_{CT}\,(0,0,\cos\theta)^T
+	= \frac{1+m_{CT}}{2}\,(0,0,\cos\theta)^T\\
+	%-
+	\vec\mu_{0e} &= \braket{0|\hat{\mu}|e} \nonumber\\
+	&= \mu_{CT}\sin\delta\,(-\sin\theta, 0,0)^T
+	= \sqrt{2\ell_{CT}}\mu_{CT}\,(-\sin\theta, 0,0)^T\nonumber\\
+	&= \sqrt{\frac{1+m_{CT}}{2}}\mu_{CT}\,(-\sin\theta, 0,0)^T\\
+	%-
+	\vec\mu_{0f} &= \braket{0|\hat{\mu}|f}  \nonumber\\
+	&= \frac{\mu_{CT}}{2}\,\sin(2\delta)^T\,(0,0,-\cos\theta)^T
+	=\sqrt{2\ell_{CT}\,(1- 2\ell_{CT})}\mu_{CT}\,(0,0,-\cos\theta)^T\nonumber\\
+	&= \frac{\mu_{CT}}{2}\sqrt{1-m_{CT}^2}\,(0,0,-\cos\theta)^T\\
+	%-
+	\vec\mu_{ee} &= \braket{e|\hat{\mu}|e} 
+	= \mu_{CT}\,(0,0,\cos\theta)^T \\
+	%-
+	\vec\mu_{ef} &= \braket{e|\hat{\mu}|f} \nonumber\\
+	&= \mu_{CT}\cos\delta\,(\sin\theta, 0, 0)^T
+	= \sqrt{1-2\ell_{CT}}\mu_{CT}\,(\sin\theta, 0, 0)^T\nonumber\\
+	&= \mu_{CT}\sqrt{\frac{1-m_{CT}}{2}}\,(\sin\theta, 0, 0)^T \\
+	%-
+	\vec\mu_{ff} &= \braket{f|\hat{\mu}|f} \nonumber\\
+	&= \mu_{CT}\cos^2\delta\,(0,0,\cos\theta)^T
+	=(1- 2\ell_{CT})\,\mu_{CT}\,(0,0,\cos\theta)^T
+	= \frac{1-m_{CT}}{2}\,(0,0,\cos\theta)^T
+\end{align}
+and:
+\begin{align}
+	\bar\mu_{ee}&= \mu_{ee}-\mu_{00} = \mu_{CT}\,\cos^2\delta\,(0, 0, \cos\theta)^T = (1-2\ell_{CT})\,\mu_{CT}\,(0, 0, \cos\theta)^T \nonumber\\
+	&= \frac{1-m_{CT}}{2}\,(0,0,\cos\theta)^T \\
+	%-
+	\bar\mu_{ff} &= \mu_{ff}-\mu_{00} = \mu_{CT}\,\cos(2\delta)^T\,(0, 0, \cos\theta)^T = (1-4\ell_{CT})\,\mu_{CT}\,(0, 0, \cos\theta)^T\nonumber\\ 
+	&= -m_{CT}\,\mu_{CT}\,(0, 0, \cos\theta)^T
+\end{align}
+
+\subsubsection{4-state $C_{3v}$ system}
+
+The MOs are:\begin{equation}
+	\begin{pmatrix}
+		\ket{0} \\ \ket{e_1} \\ \ket{e_2} \\ \ket{f}
+	\end{pmatrix} =
+	\begin{pmatrix}
+		\sqrt{\frac{1-m_{CT}}{2}}  & \sqrt{\frac{1+m_{CT}}{6}}  & \sqrt{\frac{1+m_{CT}}{6}}  & \sqrt{\frac{1+m_{CT}}{6}}\\
+		0 & -\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0\\
+		0 & -\frac{1}{\sqrt{6}} &  -\frac{1}{\sqrt{6}} &  \frac{2}{\sqrt{6}} \\
+		\sqrt{\frac{1+m_{CT}}{2}} & -\sqrt{\frac{1-m_{CT}}{6}}   & -\sqrt{\frac{1-m_{CT}}{6}}    & -\sqrt{\frac{1-m_{CT}}{6}} 
+	\end{pmatrix} \,\begin{pmatrix}
+		\ket{\phi_{VB}} \\ \ket{\phi_{CT,1}} \\ \ket{\phi_{CT,2}}\\ \ket{\phi_{CT,3}}
+	\end{pmatrix}.
+\end{equation}
+Therefore,
+\begin{align}
+	\vec\mu_{00} &= \braket{0|\hat{\mu}|0} \nonumber\\
+	&= \mu_{CT}\sin^2\delta\,(0,0,\cos\theta)^T 
+	= 3\,\ell_{CT}\,\mu_{CT}\,(0,0,\cos\theta)^T
+	= \frac{1+m_{CT}}{2}\,(0,0,\cos\theta)^T\\
+	%-
+	\vec\mu_{0e_1} &= \braket{0|\hat{\mu}|e_1}  \nonumber\\
+	&= \frac{1}{4}\,\mu_{CT}\sin\delta\,(\sqrt{2}\,\sin\theta, -\sqrt{6}\sin\theta, 0)^T = \frac{1}{4}\,\sqrt{3\ell_{CT}}\,\mu_{CT}\,(\sqrt{2}\,\sin\theta, -\sqrt{6}\sin\theta, 0)^T \nonumber\\
+	&= \frac{1}{4}\sqrt{\frac{1+m_{CT}}{2}}\,\mu_{CT}\,(\sqrt{2}\,\sin\theta, -\sqrt{6}\sin\theta, 0)^T\\
+	%-
+	\vec\mu_{0e_2} &= \braket{0|\hat{\mu}|e_2} \nonumber\\
+	&= \frac{\sqrt{2}}{4}\,\mu_{CT}\sin\delta\,(-\sqrt{3}\,\sin\theta, -\sin\theta, 0)^T= \frac{\sqrt{2}}{4}\,\sqrt{3\ell_{CT}}\,\mu_{CT}(-\sqrt{3}\,\sin\theta, -\sin\theta, 0)^T\nonumber\\
+	&= \frac{\sqrt{2}}{4}\,\sqrt{\frac{1+m_{CT}}{2}}\,\mu_{CT}(-\sqrt{3}\,\sin\theta, -\sin\theta, 0)^T\\
+	%-
+	\vec\mu_{0f} &= \braket{0|\hat{\mu}|f} \nonumber\\
+	&= \frac{\mu_{CT}}{2}\,\sin(2\delta)^T\,(0,0,-\cos\theta)^T
+	=\sqrt{3\ell_{CT}\,(1- 3\ell_{CT})}\mu_{CT}\,(0,0,-\cos\theta)^T \nonumber\\
+	&=\frac{\mu_{CT}}{2}\sqrt{1-m_{CT}^2}\,(0,0,-\cos\theta)^T\\
+	%-
+	\vec\mu_{e_1e_1} &= \braket{e_1|\hat{\mu}|e_1} 
+	= \frac{\mu_{CT}}{4}\,(\sqrt{3}\sin\theta,\sin\theta,4\,\cos\theta)^T\\
+	%-
+	\vec\mu_{e_1e_2} &= \braket{e_1|\hat{\mu}|e_2} 
+	= \frac{ \mu_{CT}}{4}\,(-\sin\theta, \sqrt{3}\,\sin\theta, 0)^T\\
+	%-
+	\vec\mu_{e_1f} &= \braket{e_1|\hat{\mu}|f} \nonumber\\
+	&= \frac{\sqrt{2}}{4}\, \mu_{CT}\cos\delta\,(-\sin\theta, \sqrt{3}\,\sin\theta, 0)^T 
+	= \frac{\sqrt{2}}{4}\sqrt{1-3\ell_{CT}}\, \mu_{CT}\,(-\sin\theta, \sqrt{3}\,\sin\theta, 0)^T\nonumber\\
+	&= \frac{\sqrt{2}}{4}\,\sqrt{\frac{1-m_{CT}}{2}}\mu_{CT}\,(-\sin\theta, \sqrt{3}\,\sin\theta, 0)^T\\
+	%-
+	\vec\mu_{e_2e_2} &= \braket{e_2|\hat{\mu}|e_2} 
+	= \frac{\mu_{CT}}{4}\,(-\sqrt{3}\sin\theta, -\sin\theta, 4\cos\theta)^T\\
+	%-
+	\vec\mu_{e_2f} &= \braket{e_2|\hat{\mu}|f}\nonumber\\
+	&= \frac{\sqrt{2}}{4}\,\mu_{CT}\cos\delta\,(\sqrt{3}\,\sin\theta, \sin\theta, 0)^T
+	= \frac{\sqrt{2}}{4}\,\sqrt{1-3\ell_{CT}}\,\mu_{CT}\,(\sqrt{3}\,\sin\theta, \sin\theta, 0)^T\nonumber\\
+	&= \frac{\sqrt{2}}{4}\,\sqrt{\frac{1-m_{CT}}{2}}\,\mu_{CT}\,(\sqrt{3}\,\sin\theta, \sin\theta, 0)^T\\
+	%-
+	\vec\mu_{ff} &= \braket{f|\hat{\mu}|f} \nonumber\\
+	&= \mu_{CT}\cos^2\delta\,(0,0,\cos\theta)^T
+	=(1- 3\ell_{CT})\,\mu_{CT}\,(0,0,\cos\theta)^T
+	= \frac{1-m_{CT}}{2}\,(0,0,\cos\theta)^T\end{align}
+and:
+\begin{align}
+	\bar\mu_{e_1e_1}&= \mu_{e_1e_1}-\mu_{00} = \mu_{CT}\,\left(\frac{\sqrt{3}}{4}\,\sin\theta, \frac{1}{4}\,\sin\theta, \cos^2\delta\,\cos\theta\right)^T\nonumber\\
+	&= \mu_{CT}\,\left(\frac{\sqrt{3}}{4}\,\sin\theta, \frac{1}{4}\,\sin\theta,(1-2\ell_{CT})\,\cos\theta\right)^T\nonumber\\
+	&= \mu_{CT}\,\left(\frac{\sqrt{3}}{4}\,\sin\theta, \frac{1}{4}\,\sin\theta,\frac{1-m_{CT}}{2}\,\cos\theta\right)^T \\
+	\bar\mu_{e_2e_2}&= \mu_{e_2e_2}-\mu_{00} = \mu_{CT}\,\left(-\frac{\sqrt{3}}{4}\,\sin\theta, -\frac{1}{4}\,\sin\theta, \cos^2\delta\,\cos\theta\right)^T \nonumber\\
+	&= \mu_{CT}\,\left(-\frac{\sqrt{3}}{4}\,\sin\theta, -\frac{1}{4}\,\sin\theta,(1-2\ell_{CT})\,\cos\theta\right)^T\nonumber\\
+	&= \mu_{CT}\,\left(-\frac{\sqrt{3}}{4}\,\sin\theta, -\frac{1}{4}\,\sin\theta,\frac{1-m_{CT}}{2}\,\cos\theta\right)^T \\
+	\bar\mu_{ff} &= \mu_{ff}-\mu_{00} = \mu_{CT}\,\cos(2\delta)^T\,(0, 0, \cos\theta)^T = (1-6\ell_{CT})\,\mu_{CT}\,(0, 0, \cos\theta)^T\nonumber\\ 
+	&= -m_{CT}\,\mu_{CT}\,(0, 0, \cos\theta)^T
+\end{align}
+
+\subsubsection{5-state $T_d$ system}
+
+The MOs are:\begin{equation}
+	\begin{pmatrix}
+		\ket{0} \\ \ket{e_1} \\ \ket{e_2} \\ \ket{e_3} \\ \ket{f}
+	\end{pmatrix} =
+	\begin{pmatrix}
+		\sqrt{\frac{1-m_{CT}}{2}}  & \sqrt{\frac{1+m_{CT}}{8}}  & \sqrt{\frac{1+m_{CT}}{8}}  & \sqrt{\frac{1+m_{CT}}{8}} & \sqrt{\frac{1+m_{CT}}{8}}\\
+		0 & -\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0 & 0\\
+		0 & -\frac{1}{\sqrt{6}} &  -\frac{1}{\sqrt{6}} &  \frac{2}{\sqrt{6}} & 0 \\
+		0 & -\frac{1}{\sqrt{12}} &  -\frac{1}{\sqrt{12}}&  -\frac{1}{\sqrt{12}} &  \frac{3}{\sqrt{12}}\\
+		\sqrt{\frac{1+m_{CT}}{2}} & -\sqrt{\frac{1-m_{CT}}{8}}   & -\sqrt{\frac{1-m_{CT}}{8}}    & -\sqrt{\frac{1-m_{CT}}{8}}     & -\sqrt{\frac{1-m_{CT}}{8}} 
+	\end{pmatrix} \,\begin{pmatrix}
+		\ket{\phi_{VB}} \\ \ket{\phi_{CT,1}} \\ \ket{\phi_{CT,2}}\\ \ket{\phi_{CT,3}}\\ \ket{\phi_{CT,4}}
+	\end{pmatrix}.
+\end{equation}
+Therefore,
+\begin{align}
+	\vec\mu_{00} &= \braket{0|\hat{\mu}|0} 
+	%= \frac{1}{4}\sin^2\delta\,(\vec\mu_{CT,1} + \vec\mu_{CT,2} + \vec\mu_{CT,3} + \vec\mu_{CT,4})^T 
+	= \vec 0 \\
+	\vec\mu_{e_1e_1} &= \braket{e_1|\hat{\mu}|e_1} 
+	%= \frac{1}{2}\,(\mu_{CT,1}+\mu_{CT,2})^T 
+	= \mu_{CT}\,\frac{\sqrt{3}}{3}\,(1, 0, 0)^T  = \bar\mu_{e_1e_1}\\
+	\vec\mu_{e_2e_2} &= \braket{e_2|\hat{\mu}|e_2} 
+	%= \frac{1}{6}\,(\vec\mu_{CT,1} + \vec\mu_{CT,2} + 4\vec\mu_{CT,3})^T 
+	= \mu_{CT}\,\frac{\sqrt{3}}{9}\,(-1, -2, 2)^T = \bar\mu_{e_2e_2}\\
+	\vec\mu_{e_3e_3} &= \braket{e_3|\hat{\mu}|e_3} 
+	%= \frac{1}{12}\,(\vec\mu_{CT,1} + \vec\mu_{CT,2} + \vec\mu_{CT,3}+ 9\vec\mu_{CT,4})^T 
+	= \mu_{CT}\,\frac{2\,\sqrt{3}}{9}\,(-1, 1, -1)^T  = \bar\mu_{e_3e_3}\\
+	\vec\mu_{ff} &= \braket{f|\hat{\mu}|f} 
+	%= \frac{1}{4}\cos^2\delta\,(\vec\mu_{CT,1} + \vec\mu_{CT,2} + \vec\mu_{CT,3} + \vec\mu_{CT,4})^T 
+	= \vec{0}
+\end{align}
+Furthermore, $\vec\mu_{0f}=\vec{0}$, so  the only transition dipoles needed are:\begin{align}
+	\vec\mu_{0e_1} &= \braket{0|\hat{\mu}|e_1} \nonumber\\
+	%= \frac{1}{2\sqrt{2}}\,\sin\delta\,(- \vec\mu_{CT,1} + \vec\mu_{CT,2})^T 
+	&= \frac{\sqrt{6}}{6}\,\mu_{CT}\sin\delta\,(0, -1, -1)^T
+	= \frac{\sqrt{6}}{6}\sqrt{4\ell_{CT}}\,\mu_{CT}\,(0, -1, -1)^T\nonumber\\
+	&= \frac{\sqrt{6}}{6}\sqrt{\frac{1+m_{CT}}{2}}\,\mu_{CT}\,(0, -1, -1)^T\\
+	\vec\mu_{0e_2} &= \braket{0|\hat{\mu}|e_2} \nonumber\\ %=\frac{1}{2\sqrt{6}}\,\sin\delta\,(-\vec\mu_{CT,1} - \vec\mu_{CT,2} + 2 \vec\mu_{CT,3})^T 
+	&= \frac{3\sqrt{2}}{18}\,\mu_{CT}\sin\delta\,(-2, -1, 1)^T= \frac{3\sqrt{2}}{18}\,\sqrt{4\ell_{CT}}\,\mu_{CT}\,(-2, -1, 1)^T\nonumber\\
+	&= \frac{3\sqrt{2}}{18}\,\sqrt{\frac{1+m_{CT}}{2}}\,\mu_{CT}\,(-2, -1, 1)^T\\
+	\vec\mu_{0e_3} &= \braket{0|\hat{\mu}|e_3}\nonumber\\ %=\frac{1}{4\sqrt{3}}\,\sin\delta\,(- \vec\mu_{CT,1} - \vec\mu_{CT,2} - \vec\mu_{CT,3} + 3 \vec\mu_{CT,4})^T 
+	&= \frac{1}{3}\,\mu_{CT}\sin\delta\,(-1, 1, -1)^T= \frac{1}{3}\,\sqrt{4\ell_{CT}}\,\mu_{CT}\,(-1, 1, -1)^T\nonumber\\
+	&= \frac{1}{3}\,\sqrt{\frac{1+m_{CT}}{2}}\,\mu_{CT}\,(-1, 1, -1)^T\\
+	\vec\mu_{e_1e_2} &= \braket{e_1|\hat{\mu}|e_2} %=\frac{1}{2\sqrt{3}}\,(\vec\mu_{CT,1} - \vec\mu_{CT,2})^T 
+	= \frac{1}{3}\,\mu_{CT}\,(0, 1, 1)^T \\
+	\vec\mu_{e_1e_3} &= \braket{e_1|\hat{\mu}|e_3} %=\frac{1}{2\sqrt{6}}\,(\vec\mu_{CT,1} - \vec\mu_{CT,2})^T
+	= \frac{\sqrt{2}}{6}\,\mu_{CT}\,(0, 1, 1)^T \\
+	\vec\mu_{e_2e_3} &= \braket{e_2|\hat{\mu}|e_3} £
+	%=\frac{1}{6\sqrt{2}}\,(\vec\mu_{CT,1} + \vec\mu_{CT,2} - 2 \vec\mu_{CT,3})^T 
+	= \frac{\sqrt{6}}{18}\,\mu_{CT}\,(2, 1, -1)^T
+\end{align}
+
+\subsection{Tensor elements}
+
+In the following, the expression for most-nonzero components of $\beta$ will be derived.
+Note that $\beta$ can be decomposed in the so-called \textit{dipolar} or diagonal terms, $\beta^D$ (where $a_1=a_2$) and \textit{two-photon}, octupolar, or off-diagonal terms, $\beta^{TP}$ (where $a_1\neq a_2$):\begin{equation}
+	\beta_{(\zeta\eta\kappa)} = \beta^D_{(\zeta\eta\kappa)} + \beta^{TP}_{(\zeta\eta\kappa)}  =  \sum_{\mathcal{P}_F} \sum_{a_1'} \frac{(\zeta\bar{\eta}\kappa)_{a_1 a_1}}{\Delta E_{0a_1}^2} + 2\, \sum_{\mathcal{P}_F}\sum_{a_1< a_2} \frac{(\zeta\eta\kappa)_{a_1 a_2}}{\Delta E_{0a_1}\,\Delta E_{0a_2}}.
+\end{equation}
+
+\newcommand{\sosc}[3]{
+\readlist\states{#1}
+\readlist\steps{#2}
+\readlist\coos{#3}
+\pgfmathparse{\stateslen * -.75}
+\raisebox{\pgfmathresult em}{
+\begin{tikzpicture}[xscale=.4,yscale=.7]
+\fill[gray!15] (-.5,-.5) rectangle +(\stepslen + 2.75,\stateslen );
+\foreach \i [count=\xi] in {#1}{
+	\draw[thick] (-.25,\xi -1) --  +(\stepslen + 0.5 ,0) node[right]{\footnotesize$\ket{\i}$};
+}
+\draw[-latex,blue] (0,0) node[below]{\footnotesize\coos[1]} -- (0,\steps[1]);
+\ifnum\stepslen>1
+\pgfmathparse{\stepslen - 1}
+\foreach \j in {1,...,\pgfmathresult} {
+	\ifnum \steps[\j] = \steps[\j + 1]
+	\draw[-latex,blue] (\j -1,\steps[\j]) .. controls +(60:.5) and +(120:.5) .. (\j ,\steps[\j + 1]) ;
+	\else
+	\draw[-latex,blue] (\j - 1,\steps[\j]) -- (\j,\steps[\j + 1]) ;
+	\fi
+	
+	\draw (\j, 0) node[below,blue]{\footnotesize\coos[\j + 1]};
+}
+\fi
+\draw[-latex,blue] (\stepslen -1 ,\steps[\stepslen]) -- (\stepslen,0]) node[below]{\footnotesize\coos[\cooslen]};
+\end{tikzpicture}
+}
+}
+
+\subsubsection{2-state $C_{\infty v}$ systems}
+
+Using:\begin{equation}
+	\frac{1}{\Delta E_{0f}} = \frac{\sqrt{1-m_{CT}^2}}{2t},
+\end{equation}
+and the SOS expression, it simply gives: \cite{barzoukasTWOFORMDESCRIPTIONPUSHPULL1996,barzoukasTwostateDescriptionHyper1996,blanchard-desceTwoformTwostateAnalysis1998a}\begin{align}
+	\beta_{zzz} &= \beta^D_{zzz} = 6\times\sosc{0,f}{1,1}{z,z,z}  %\nonumber\\
+	%= 6\,\frac{\cos^2\delta\,\sin^2\delta\,(\cos^2\delta-\sin^2\delta)\,\mu_{CT}^3}{E^2_{gf}}
+	%&=\frac{3}{8}\,\sin^4(2\delta)\,\cos(2\delta)\,\frac{\mu_{CT}^3}{t^2} \nonumber\\
+	%&=6\ell_{CT}^2\,(1-\ell_{CT})^2\,(1-2\ell_{CT})\,\frac{\mu_{CT}^3}{t^2} \nonumber\\ 
+ = -\frac{3}{8}\,m_{CT}\,(1-m_{CT}^2)^2\,\frac{\mu_{CT}^3}{t^2},
+\end{align}
+The evolution of this component with $m_{CT}$ is plotted in Fig.~\ref{fig:2:cpt}.
+
+\begin{figure}
+	\includegraphics[width=.49\linewidth]{FigureS1}
+	\caption{Evolution of the different components as a function of $m_{CT}$ for a  2-state model, with $T=t/2$.}
+	\label{fig:2:cpt}
+\end{figure}
+
+These diagrammatic representations each represent a non-zero term in the SOS expansion: each transition dipole $\mu_{if} = \braket{i|\zeta|f}$ is represented by a vertical arrow, indicating the initial ($i$) and final ($f$) state, and the corresponding $\zeta$ is given in the bottom. The fluctuation dipoles $\bar\mu_{ii}$ are represented by a curved arrow.  The product of transition energies are given by the excited states on which the arrows are ending. For example,\begin{equation*}
+	\sosc{0,e,f}{1,2}{x,y,z} = \frac{(xyz)_{ef}}{\Delta E_{0e}\Delta E_{0f}}  = \frac{\braket{0|x|e}\braket{e|y|f}\braket{f|z|0}}{\Delta E_{0e}\Delta E_{0f}}.
+\end{equation*}
+
+\subsubsection{3-state $C_{2v}$ system}
+
+Using:\begin{equation}
+	\frac{1}{\Delta E_{0e}}= \frac{1}{2T + t\,\left[2\,\frac{1-m_{CT}}{1+m_{CT}}\right]^{\nicefrac{1}{2}}}, \text{ and } \frac{1}{\Delta E_{0f}} = \frac{\sqrt{1-m_{CT}^2}}{2t\sqrt{2}},
+\end{equation}
+and the SOS expression, for $\beta_{zzz}$, the SOS relationship reduces to the dipolar term and the second excited state,\begin{align}
+	\beta_{zzz} &= \beta^D_{zzz} = 6\times\sosc{0,e,f}{2,2}{z,z,z} % \nonumber\\
+	%&= \frac{3}{16}\,\sin^4(2\delta)\,\cos(2\delta)\,\frac{\mu_{CT}^3}{t^2}\,\cos^3\theta\nonumber\\
+	%&= 12\ell_{CT}^2\,(1-2\ell_{CT})^2\,(1-4\ell_{CT})\,\frac{\mu^3_{CT}}{t^2}\,\cos^3\theta  \nonumber\\
+	= -\frac{3}{16}\,m_{CT}\,(1-m_{CT}^2)^2\,\frac{\mu_{CT}^3}{t^2}\,\cos^3\theta
+\end{align}
+This expression is identical to the 2-state case, although modulated by the $\cos^3\theta$ factor.  On the other hand, for $\beta_{(zxx)}$ (the parenthesis indicates the permutation of the indices)\begin{align}
+	\beta_{(zxx)} = \beta_{(zxx)}^D + \beta_{(zxx)}^{TP},
+\end{align}
+with\begin{align}
+	\beta_{(zxx)}^D &=2\times\sosc{0,e,f}{1,1}{x,z,x} %\nonumber\\
+	%&= \frac{\sin^2(2\delta)}{2}\,\frac{\mu^3_{CT}}{(2T+t\sqrt{2}\,\cot\delta)^2}\,\sin^2\theta\cos\theta\nonumber\\
+	%&= 4\ell_{CT}\,(1-2\ell_{CT})\,\frac{\mu_{CT}^3}{\left(2T + t\,\sqrt{\frac{1}{\ell_{CT}}-2}\right)^2}\,\sin^2\theta\cos\theta\nonumber\\
+	%&
+	= \frac{1-m_{CT}^2}{2}\,\frac{\mu_{CT}^3}{\left(2T + t\,\left[2\,\frac{1-m_{CT}}{1+m_{CT}}\right]^{\nicefrac{1}{2}}\right)^2}\,\sin^2\theta\cos\theta
+\end{align}
+and\begin{align}
+	\beta_{(zxx)}^{TP} &= 4\times\sosc{0,e,f}{1,2}{x,x,z} % \nonumber\\
+	%&= \sin^3(2\delta)\,\frac{\mu_{CT}^3}{(2T+t\sqrt{2}\,\cot\delta)\,(2t\,\sqrt{2})}\,\sin^2\theta\cos\theta\nonumber\\
+	%&= 8\ell_{CT}\,(1-2\ell_{CT})\,\frac{\mu_{CT}^3}{\left(2T + t\,\sqrt{\frac{1}{\ell_{CT}}-2}\right)\,\left(\frac{t}{\sqrt{\ell_{CT}\,(1-2\ell_{CT})}}\right)}\,\sin^2\theta\cos\theta\nonumber\\
+	%&
+	= (1-m_{CT}^2)\,\frac{\mu_{CT}^3}{2t\,\left[\frac{2}{1-m_{CT}^2}\right]^{\nicefrac{1}{2}}\,\left(2T + t\left[2\,\frac{1-m_{CT}}{1+m_{CT}}\right]^{\nicefrac{1}{2}}\right)}\,\sin^2\theta\cos\theta
+\end{align}
+so that\begin{align}
+	\beta_{(zxx)} &= \frac{1-m_{CT}^2}{2}\,\mu_{CT}^3\,\sin^2\theta\cos\theta\nonumber\\
+	&\hspace{1cm}\times\left\{\frac{1}{\left(2T + t\,\left[2\,\frac{1-m_{CT}}{1+m_{CT}}\right]^{\nicefrac{1}{2}}\right)^2} + \frac{2}{2t\,\left[\frac{2}{1-m_{CT}^2}\right]^{\nicefrac{1}{2}}\,\left(2T + t\,\left[2\,\frac{1-m_{CT}}{1+m_{CT}}\right]^{\nicefrac{1}{2}}\right)}\right\}.
+\end{align}
+This analysis is in agreement with Ref.~\citenum{yangLargeOffDiagonalContribution2003}. Note that when $\theta=\SI{90}{°}$, both $\beta_{zzz}$ and $\beta_{(zxx)}$ goes to zero, since it corresponds to a situation with a center of inversion ($D_{\infty h}$). 
+The evolution of the different components with $m_{CT}$ are plotted in Fig.~\ref{fig:3:cpt}.
+
+\begin{figure}
+	\includegraphics[width=.49\linewidth]{FigureS2a}
+	\includegraphics[width=.49\linewidth]{FigureS2b}
+	\caption{Evolution of the different components as a function of $m_{CT}$ for a  3-state model, with $T=t/2$.}
+	\label{fig:3:cpt}
+\end{figure}
+
+\subsubsection{4-state $C_{3v}$ system}
+
+Using:\begin{equation}
+	\frac{1}{\Delta E_{0e}}= \frac{1}{3T + t\,\left[3\,\frac{1-m_{CT}}{1+m_{CT}}\right]^{\nicefrac{1}{2}}}, \text{ and } \frac{1}{\Delta E_{0f}} = \frac{\sqrt{1-m_{CT}^2}}{2t\sqrt{3}},
+\end{equation}
+and the SOS expression, for $\beta_{zzz}$, only one dipolar channel (through $\vec\mu_{0f}$, since it is the only one with an non-null $z$ component) is possible:\begin{align}
+	\beta_{zzz} &= \beta^D_{zzz} =  6\times \sosc{0,e_1,e_2,f}{3,3}{z,z,z}%\nonumber\\ 
+	%& 
+	%= \frac{1}{8}\,\sin^4(2\delta)\,\cos(2\delta)\,\frac{\mu_{CT}^3}{t^2}\,\cos^3\theta\nonumber\\
+	%&= 18\ell_{CT}^2\,(1-3\ell_{CT})^2\,(1-6\ell_{CT})\,\frac{\mu^3_{CT}}{t^2}\,\cos^3\theta \nonumber\\
+	%&
+	= -\frac{1}{8}\,m_{CT}\,(1-m_{CT}^2)^2\,\frac{\mu^3_{CT}}{t^2}\,\cos^3\theta
+\end{align}
+the form is, again, very similar to the one of the 2-state system, as expected. Concerning $\beta_{(zyy)}$ component, the two excitation channels are possible:\begin{equation}
+	\beta_{(zyy)} = \beta_{(zyy)}^{D} + \beta_{(zyy)}^{TP},
+\end{equation}
+with,\begin{align}
+	\beta_{(zyy)}^D &=2\,\left[\sosc{0,e_1,e_2,f}{1,1}{y,z,y}+\sosc{0,e_1,e_2,f}{2,2}{y,z,y}\right] \nonumber\\
+	%&=\frac{\sin^2(2\delta)}{4}\,\frac{\mu_{CT}^3}{(3T + t\sqrt{3}\,\cot\delta)^2}\,\sin^2\theta\cos\theta\nonumber\\
+	%&= 3\ell_{CT}\,(1-3\ell_{CT})\,\frac{\mu_{CT}^3}{\left(3T + t\,\sqrt{\frac{1}{l}-3}\right)^2}\,\sin^2\theta\cos\theta\nonumber\\
+	&= \frac{1}{4}\,(1-m_{CT}^2)\,\frac{\mu_{CT}^3}{\left(3T + t\,\left[3\,\frac{1-m_{CT}}{1+m_{CT}}\right]^{\nicefrac{1}{2}}\right)^2}\,\sin^2\theta\cos\theta,
+\end{align}
+and,
+\begin{align}
+	\beta_{(zyy)}^{TP}  &= 4\,\left[\sosc{0,e_1,e_2,f}{1,3}{y,y,z}+\sosc{0,e_1,e_2,f}{2,3}{y,y,z}\right] \nonumber\\
+	%&= \frac{1}{2}\,\sin^3(2\delta)\,\frac{\mu_{CT}^3}{(3T + t\sqrt{3}\,\cot\delta)(2t\sqrt{3})}\,\sin^2\theta\cos\theta\nonumber\\
+	%&= 6\ell_{CT}\,(1-3\ell_{CT})\,\frac{\mu_{CT}^3}{\left(2T + t\,\sqrt{\frac{1}{\ell_{CT}}-2}\right)\,\left(\frac{t}{\sqrt{\ell_{CT}\,(1-2\ell_{CT})}}\right)}\,\sin^2\theta\cos\theta\nonumber\\
+	&= \frac{1}{2}\,(1-m_{CT}^2)\,\frac{\mu_{CT}^3}{2t\,\left[\frac{3}{1-m_{CT}^2}\right]^{\nicefrac{1}{2}}\,\left(3T + t\,\left[3\,\frac{1-m_{CT}}{1+m_{CT}}\right]^{\nicefrac{1}{2}}\right)}\,\sin^2\theta\cos\theta,
+\end{align}
+so that\begin{align}
+	\beta_{(zyy)} &= \frac{1-m_{CT}^2}{4}\,\mu_{CT}^3\,\sin^2\theta\cos\theta\nonumber\\
+	&\hspace{1cm}\times\left\{\frac{1}{\left(3T + t\,\left[3\,\frac{1-m_{CT}}{1+m_{CT}}\right]^{\nicefrac{1}{2}}\right)^2} + \frac{2}{2t\,\left[\frac{3}{1-m_{CT}^2}\right]^{\nicefrac{1}{2}}\,\left(3T + t\,\left[3\,\frac{1-m_{CT}}{1+m_{CT}}\right]^{\nicefrac{1}{2}}\right)}\right\},
+\end{align}
+which is reminiscent of $\beta_{(zxx)}$ in the 3-state system. Note that $\beta_{(zxx)} = \beta_{(zyy)}$, as expected from the $C_{3v}$ symmetry. Finally, concerning $\beta_{yyy}$, excitation channels cannot go through $\vec\mu_{gf}$, and so there are two D terms, and one TP term:\begin{align}
+	\beta^D_{yyy} &= 6\,\left[\sosc{0,e_1,e_2,f}{1,1}{y,y,y}+\sosc{0,e_1,e_2,f}{2,2}{y,y,y}\right] %\nonumber\\
+	%&= \frac{3}{8}\,\sin^2\delta\, \frac{\mu_{CT}^3}{(3T+t\sqrt{3}\,\cot\delta)^2}\,\sin^3\theta\nonumber\\
+	%&=\frac{9\ell_{CT}}{8}\frac{\mu_{CT}^3}{\left(3T + t\,\sqrt{\frac{1}{\ell_{CT}}-3}\right)^2}\,\sin^3\theta\nonumber\\
+	= \frac{3}{16}\,(1+m_{CT})\,\frac{\mu_{CT}^3}{\left(3T + t\,\left[3\,\frac{1-m_{CT}}{1+m_{CT}}\right]^{\nicefrac{1}{2}}\right)^2}\,\sin^3\theta\\
+	%-
+	\beta^{TP}_{yyy} &= 12\times\sosc{0,e_1,e_2,f}{1,2}{y,y,y} %\nonumber\\
+	%&= \frac{9}{8}\,\sin^2\delta\,\frac{\mu_{CT}^3}{(3T+t\sqrt{3}\,\cot\delta)^2}\,\sin^3\theta \nonumber\\
+	%&= \frac{27\ell_{CT}}{8}\frac{\mu_{CT}^3}{\left(3T + t\,\sqrt{\frac{1}{\ell_{CT}}-3}\right)^2}\,\sin^3\theta\nonumber\\
+	= \frac{9}{16}\,(1+m_{CT})\,\frac{\mu_{CT}^3}{\left(3T + t\,\left[3\,\frac{1-m_{CT}}{1+m_{CT}}\right]^{\nicefrac{1}{2}}\right)^2}\,\sin^3\theta
+\end{align}
+So that\begin{equation}
+	\beta_{yyy} = \frac{3}{4}\,(1+m_{CT})\,\frac{\mu_{CT}^3}{\left(3T + t\,\left[3\,\frac{1-m_{CT}}{1+m_{CT}}\right]^{\nicefrac{1}{2}}\right)^2}\,\sin^3\theta.\label{eq:4:yyy}
+\end{equation}
+The relationship $\beta_{yyy} = -\beta_{(yxx)}$ holds in this model,  as expected from $C_{3v}$ symmetry. Furthermore, all other components are zero by symmetry. Note that when $\theta=\SI{90}{\degree}$, the system correspond to a $D_{3h}$ symmetry, with $\beta_{zzz} = \beta_{(zyy)} = \beta_{(zxx)} = 0$. Additionally, thanks to a series development, one gets:\begin{equation}
+	\beta_{yyy} = \mu_{CT}^3\,\left[\frac{1}{6\,T^2}-\frac{t\,\sqrt{\frac{3}{2}\,(1-m_{CT})}}{9\,T^3}\right]\text{ as } m_{CT}\to 1
+\end{equation}
+
+The evolution of the different components with $m_{CT}$ are plotted in Fig.~\ref{fig:4:cpt}.
+
+\begin{figure}
+	\includegraphics[width=.49\linewidth]{FigureS3a}
+	\includegraphics[width=.49\linewidth]{FigureS3b}
+	\includegraphics[width=.49\linewidth]{FigureS3c}
+	\caption{Evolution of the different components as a function of $m_{CT}$ for a  4-state model, with $T=t/2$.}
+	\label{fig:4:cpt}
+\end{figure}
+
+\subsubsection{5-state $T_d$ system}Using:\begin{equation}
+	\frac{1}{\Delta E_{0e}}= \frac{1}{4T + 2t\,\left[\frac{1-m_{CT}}{1+m_{CT}}\right]^{\nicefrac{1}{2}}}, %\text{ and } \frac{1}{\Delta E_{0f}} = \frac{\sqrt{1-m_{CT}^2}}{4t},
+\end{equation}
+and the SOS expression, for $\beta_{(xyz)}$, both D and TP channels are possible. In fact,\begin{align}
+	\beta_{(xyz)}^{TP} &=\sum_{\mathcal{P}} \left[\sosc{0,e_1,e_2,e_3,f}{1,1}{x,y,z} + \sosc{0,e_1,e_2,e_3,f}{2,2}{x,y,z} + \sosc{0,e_1,e_2,e_3,f}{3,3}{x,y,z}\right] \nonumber\\
+	%&= \frac{1}{E_{ge}^2}\,\sin^2\delta\,\mu_{CT}^3\,\left(\frac{\sqrt{3}}{9}+\frac{\sqrt{3}}{9}+\frac{4\,\sqrt{3}}{27}\right) 
+	%= \frac{10\sqrt{3}}{27}\,\sin^2\delta\,\frac{\mu_{CT}^3}{(4T + 2t\cot\delta)^2}\nonumber\\
+	%&= \frac{40\sqrt{3}\,\ell_{CT}}{27}\frac{\mu_{CT}^3}{\left(4T + t\,\sqrt{\frac{1}{\ell_{CT}}-4}\right)^2}\nonumber\\
+	& = (1+m_{CT})\,\frac{5\sqrt{3}}{27}\frac{\mu_{CT}^3}{\left(4T + 2t\,\sqrt{\frac{1-m_{CT}}{1+m_{CT}}}\right)^2}
+\end{align}
+and,\begin{align}
+	\beta_{(xyz)}^{D} &=\sum_{\mathcal{P}} \left[\sosc{0,e_1,e_2,e_3,f}{1,2}{x,y,z} + \sosc{0,e_1,e_2,e_3,f}{1,3}{x,y,z} + \sosc{0,e_1,e_2,e_3,f}{2,3}{x,y,z}\right]\nonumber\\
+	%&%= \frac{2}{E_{ge}^2}\,\sin^2\delta\,\mu_{CT}^3\,\left(\frac{2\sqrt{3}}{27}+\frac{\sqrt{3}}{27}+\frac{\sqrt{3}}{27}\right) 
+	%=  \frac{8\sqrt{3}}{27}\,\sin^2\delta\,\frac{\mu_{CT}^3}{(4T + 2t\cot\delta)^2}\nonumber\\
+	%&= \frac{32\sqrt{3}\,\ell_{CT}}{27}\frac{\mu_{CT}^3}{\left(4T + t\,\sqrt{\frac{1}{\ell_{CT}}-4}\right)^2}\nonumber\\
+	&= (1+m_{CT})\,\frac{4\sqrt{3}}{27}\frac{\mu_{CT}^3}{\left(4T + 2t\,\sqrt{\frac{1-m_{CT}}{1+m_{CT}}}\right)^2},
+\end{align}
+thus,\begin{equation}
+	\beta_{(xyz)} = (1+m_{CT})\,\frac{\sqrt{3}}{3}\frac{\mu_{CT}^3}{\left(4T + 2t\,\left[\frac{1-m_{CT}}{1+m_{CT}}\right]^{\nicefrac{1}{2}}\right)^2},\label{eq:5:xyz}
+\end{equation}
+which is in agreement with Cho \emph{et al.} \cite{choNonlinearOpticalProperties2002}. This is reminiscent of $\beta_{(yyy)}$ in the 4-state model, which evolves like $\Delta E_{0e}^{-2}$ (favored by large $m_{CT}$ and small $T$).  Indeed,\begin{equation}
+	\beta_{(xyz)} = \mu_{CT}^3\,\sqrt{3}\,\left[\frac{1}{24\,T^2}-\frac{t\,\sqrt{\frac{1}{2}\,(1-m_{CT})}}{24\,T^3}\right] \text{ as } m_{CT}\to 1.
+\end{equation}
+The evolution of this component with $m_{CT}$ are plotted in Fig.~\ref{fig:5:cpt}.
+ 
+ \begin{figure}
+ 	\includegraphics[width=.49\linewidth]{FigureS4}
+ 	\caption{Evolution of the different components as a function of $m_{CT}$ for a  5-state model, with $T=t/2$.}
+ 	\label{fig:5:cpt}
+ \end{figure}
+
+\subsection{Tensor invariants for the different symmetries}
+
+
+The evolution of $\tilde\beta_{SHS}$, with $m_{CT}$ is plotted in Fig.~\ref{fig:mct}.
+
+\begin{figure}
+	\includegraphics[width=.7\linewidth]{FigureS5}
+	\caption{Evolution of  $\tilde\beta_{SHS}$ as a function of $m_{CT}$ for different systems and symmetries, with $T=t/2$.}
+	\label{fig:mct}
+\end{figure}
+
+\clearpage
+
+In order to extract the relationships between these quantities and the components for the different systems:\begin{align}
+	 \beta_{HRS} =\left[ \begin{pmatrix}
+	 	\frac{10}{45} &  \frac{10}{105}
+	 \end{pmatrix}\,\begin{pmatrix}
+	 	|\beta_{J=1}|^2 \\ |\beta_{J=3}|^2
+	 \end{pmatrix}\right]^{\nicefrac{1}{2}}.
+\end{align}
+The depolarization ratios are also reported when their expressions is simple.
+
+\paragraph{2-state $C{\infty v}$ system.} For the 2-state system, the expressions are:\begin{align}
+	&\begin{cases}
+		|\beta_{J=1}|^2=\frac{3}{5}\,\beta_{zzz}^2\\
+		 |\beta_{J=3}|^2=\frac{2}{5}\,\beta_{zzz}^2
+	\end{cases} \implies \beta_{HRS} = \sqrt{\frac{6}{35}}\,|\beta_{zzz}|,  \text{ and } DR_{SHS} = 5.
+\end{align}
+
+
+\paragraph{3-state $C_{2v}$ system.}\begin{align}
+	&\begin{pmatrix}
+		|\beta_{J=1}|^2 \\ |\beta_{J=3}|^2
+	\end{pmatrix} = \frac{1}{5}\,\begin{pmatrix}
+	3 & 3 & 6 \\
+	2 & 12 & -6
+	\end{pmatrix}\,\begin{pmatrix}
+	\beta_{zzz}^2\\\beta_{zxx}^2\\\beta_{zzz}\beta_{zxx}
+	\end{pmatrix}\nonumber\\
+	&\hspace{2em}\implies \beta_{HRS} = \sqrt{\frac{2}{105}\,(9\,\beta_{zzz}^2+19\,\beta_{zxx}^2+8\,\beta_{zzz}\beta_{zxx}}).
+\end{align}
+
+
+\paragraph{3-state $D_{\infty h}$ system.} For this system ($\theta = \SI{90}{\degree}$), the $\beta$ tensor is zero. 
+
+\paragraph{4-state $C_{3v}$ system.} \begin{align}
+	&\begin{pmatrix}
+		|\beta_{J=1}|^2 \\ |\beta_{J=3}|^2
+	\end{pmatrix} = \frac{1}{5}\,\begin{pmatrix}
+		12 & 0 & 12 & 3 \\
+		18 & 20 & -12 & 2
+	\end{pmatrix}\,\begin{pmatrix}
+		\beta_{yyz}^2\\\beta_{yyy}^2\\\beta_{yyz}\beta_{zzz} \\ \beta_{zzz}^2
+	\end{pmatrix}\nonumber\\ &\hspace{2em}\implies \beta_{HRS} =\sqrt{\frac{2}{105}\,(46\,\beta_{yyz}^2+20\,\beta_{yyy}^2+16\,\beta_{yyz}\beta_{zzz} + 9\,\beta_{zzz}^2}).
+\end{align}
+
+\paragraph{4-state $D_{3h}$ system.} For this system ($\theta = \SI{90}{\degree}$),\begin{align}
+	&|\beta_{J=3}|^2 = 4\,\beta_{yyy}^2 \implies \beta_{SHS} = \sqrt{\frac{8}{21}}\,|\beta_{yyy}| \text{ and } DR_{SHS} = \frac{3}{2}.
+\end{align}
+
+\paragraph{5-state $T_d$ system.}  For this system,\begin{align}
+	&|\beta_{J=3}|^2 = 6\,\beta_{xyz}^2 \implies
+	\beta_{SHS} = \sqrt{\frac{4}{7}}\,|\beta_{xyz}|, \text{ and } DR_{SHS}=\frac{3}{2}.
+\end{align}
+
+\bibliography{biblio}
+
+\end{document}
