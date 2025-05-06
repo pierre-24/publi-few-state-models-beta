@@ -119,8 +119,8 @@ Setting the energy origin to:
 \end{equation}
 simplifies the eigenvalues to:
 \begin{align}
-	E_{0} = -\sqrt{n} \frac{t}{\sin(2\delta)}, E_{e_i} = nT + t \sqrt{n} \cot(2\delta), \text{ and }
-	E_{f} =  \frac{t}{\sin(2\delta)}\sqrt{n}.\label{eq:energies}
+	&E_{0} = -\sqrt{n} \frac{t}{\sin(2\delta)}, E_{e_i} = nT + t \sqrt{n} \cot(2\delta),\nonumber\\
+	&E_{f} =  \frac{t}{\sin(2\delta)}\sqrt{n}.\label{eq:energies}
 \end{align}
 In the following analysis, difference between the state energies are employed:\begin{align}
 	\Delta E_{0e} &= E_{e_i} - E_{0} = nT + t\,\sqrt{n}\,\cot{(2\delta)} + \sqrt{n}\,\frac{t}{\sin{(2\delta)}}  = t\,\sqrt{n}\,\cot(\delta) + nT,\nonumber\\
@@ -169,7 +169,7 @@ the SOS expression of Orr and Ward \cite{orrPerturbationTheoryNonlinear1971} sta
 \end{align}
 where $\zeta,\eta,\ldots$ are the Cartesian coordinates $x, y, z$ (in the molecular frame), $\omega_1, \omega_2\ldots$, the (optical) input frequencies of the laser for the NLO process (with $\omega_\sigma = \sum_{0<i<n} \omega_i$), $\ket{a_1}, \ket{a_2}, \ldots$, the states of the system  including the ground state (with $\hbar\omega_{a_i}$ the excitation energy from ground state to $\ket{a_i}$), $\mu^\zeta_{a_ia_j} = \braket{a_i|\hat \zeta|a_j}$ the transition dipole moment from state $a_i$ to $a_j$ (it corresponds to the dipole moment of electronic state $a_i$ when $i=j$), and $\sum_{\mathcal{P}_F}$ the sum of all permutations over each pair $(\zeta, \omega_\sigma),(\eta,\omega_1),\ldots$.  However, this expression encounters divergences (or singularities) when a denominator vanishes. In the static case ($\forall i: \omega_i = 0$), it happens when the sum includes the ground state. Following Orr and Ward \cite{orrPerturbationTheoryNonlinear1971} and latter Bishop \cite{bishopExplicitNondivergentFormulas1994}, substituting the dipole operator in Eq.~\eqref{eq:sos} with a fluctuation dipole operator, $\bar{\mu}^\zeta_{a_1 a_2} = \mu^\zeta_{a_1 a_2} - \delta_{a_1 a_2}\, \mu_{00}^\zeta$, results in $\bar{\mu}^\zeta_{00} = 0$, allowing the ground state to be excluded from the summations. Consequently, for the static case, one has:
 \begin{align}
-	\beta_{(\zeta\eta\kappa)} &=\sum_{\mathcal{P}_F} \sum_{a_1', a_2'} \frac{(\zeta\bar{\eta}\kappa)_{a_1 a_2}}{\Delta E_{0a_1}\,\Delta E_{0a_2}}, \label{eq:sosbeta},
+	\beta_{(\zeta\eta\kappa)} &=\sum_{\mathcal{P}_F} \sum_{a_1', a_2'} \frac{(\zeta\bar{\eta}\kappa)_{a_1 a_2}}{\Delta E_{0a_1}\,\Delta E_{0a_2}}, \label{eq:sosbeta}
 \end{align}
 where $\Delta E_{0a_1} = \hbar\omega_{a_1}$, and the prime indicates that the sums over $a_j$ now exclude $\ket{0}$.  Here, the simplified numerator notation of Bishop \cite{bishopExplicitNondivergentFormulas1994}, $(\zeta\eta\kappa)_{a_1 a_2} = \mu_{0 a_1}^\zeta \mu_{a_1 a_2}^\eta \mu_{a_2 0}^\kappa$, is employed. Since this paper focus on the static case, the permutation $\sum_{\mathcal P_F}$ runs over all components, so that $\alpha_{\zeta\eta} = \alpha_{\eta\zeta}$, which is indicated using parentheses, $\alpha_{(\zeta\eta)}$.
 
@@ -200,13 +200,15 @@ As a result, the ground-state, transition, and excited-state dipole moments are 
 For an isotropic medium composed of identical molecules or scatterers, the intensity, $I^{(n\omega)}$, of the incoherent contribution to the $n$-uple harmonic scattered light is proportional to an isotropic (or rotational) averaging of the tensor elements over all possible molecular orientations, $\braket{X^{(n)}}$ \cite{Andrews1980,verbiest_second-order_2009,Castet2012,fordMolecularTensorAnalysis2018}.
 For the second harmonic scattering (SHS), the conventional experimental setup is the hyper-Rayleigh scattering (HRS) technique\cite{verbiestSecondOrderNonlinearOptical2009}, where the scattered light is analyzed at a \SI{90}{\degree} angle with respect to the direction of propagation ($Y$), the fundamental light beam (of frequency $\omega$) is $Z$- or $X$-polarized (in the laboratory frame), while the $Z$-linearly polarized component of the scattered beam (of frequency $2\omega$) is recorded in the $X$ direction. One can thus distinguish between two polarization combinations: the VV geometry (vertical-vertical, both incident and scattered lights are $Z$-polarized) and HV [horizontal-vertical, the incident (scattered) light is $X$ ($Z$)-polarized]. The $I_{VV}$ intensity is proportional to $\braket{\beta_{ZZZ}^2}$, while $I_{HV}$ is proportional to $\braket{\beta_{ZXX}^2}$.
 For a non-po\-la\-ri\-zed incident signal, both polarizations have equal probability and the intensity becomes proportional to the sum of the HV and VV observables. This allows defining $\beta_{SHS}$, the average first hyperpolarizability, and a depolarization ratio:\begin{align}
-	\beta_{SHS} = \sqrt{\braket{\beta_{ZZZ}^2}+\braket{\beta_{ZXX}^2}} \text{ and } \text{DR}_{SHS} = \frac{\braket{\beta_{ZZZ}^2}}{\braket{\beta_{ZXX}^2}}.\label{eq:bhrs}
+	&\beta_{SHS} = \sqrt{\braket{\beta_{ZZZ}^2}+\braket{\beta_{ZXX}^2}}, \nonumber\\
+	&\text{DR}_{SHS} = \frac{\braket{\beta_{ZZZ}^2}}{\braket{\beta_{ZXX}^2}}.\label{eq:bhrs}
 \end{align}
 Furthermore, the $\beta$ tensor can be decomposed into irreducible spherical components\cite{Jerphagnon1978}. When assuming the Kleinman's conditions (since only the static case is addressed in this article), $\beta$ contains a dipolar ($J$ = 1) and an octupolar ($J$ = 3) component \cite{Brasselet1998}, expressed as:\begin{align}
-	&|\beta_{J=1}|^2 = \frac{3}{5}\sum_{\zeta\eta\kappa}^{x,y,z} \beta_{\zeta\eta\eta}\beta_{\zeta\kappa\kappa} \text{ and }|\beta_{J=3}|^2 =\sum_{\zeta\eta\kappa}^{x,y,z} \beta_{\zeta\eta\kappa}^2 - \frac{3}{5} \beta_{\zeta\eta\eta}\beta_{\zeta\kappa\kappa}. \label{eq:bj}
+	&|\beta_{J=1}|^2 = \frac{3}{5}\sum_{\zeta\eta\kappa}^{x,y,z} \beta_{\zeta\eta\eta}\beta_{\zeta\kappa\kappa},\nonumber\\
+	&\beta_{J=3}|^2 =\sum_{\zeta\eta\kappa}^{x,y,z} \beta_{\zeta\eta\kappa}^2 - \frac{3}{5} \beta_{\zeta\eta\eta}\beta_{\zeta\kappa\kappa}. \label{eq:bj}
 \end{align}
 As a consequence:\begin{align}
-		\braket{\beta^2_{ZZZ}} =  \frac{1}{5}\,|\beta_{J=1}|^2+\frac{2}{35}\,|\beta_{J=3}|^2 \text{ and } \braket{\beta^2_{ZXX}} = \frac{1}{45}\,|\beta_{J=1}|^2+\frac{4}{105}\,|\beta_{J=3}|^2.\label{eq:beta2}
+		&\braket{\beta^2_{ZZZ}} =  \frac{1}{5}\,|\beta_{J=1}|^2+\frac{2}{35}\,|\beta_{J=3}|^2,\nonumber\\ &\braket{\beta^2_{ZXX}} = \frac{1}{45}\,|\beta_{J=1}|^2+\frac{4}{105}\,|\beta_{J=3}|^2.\label{eq:beta2}
 \end{align}
 Notably, it implies that in the octupolar limit (when $|\beta_{J=3}|^2 \gg |\beta_{J=1}|^2$) DR$_{SHS}\to\frac{3}{2}$, which is the minimal value it can take. It reaches a maximal value of $9$ in the dipolar limit.\cite{verbiest_second-order_2009}
 
