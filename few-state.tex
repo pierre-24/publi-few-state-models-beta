@@ -22,7 +22,7 @@
 
 \allowdisplaybreaks
 
-\title{Influence of symmetry and electronic structure parameters on NLO properties: insights from the few state approximation}
+\title{Influence of symmetry on the second-order NLO properties: insights from the few state approximation}
 \date{Version of \today}
 \author{Pierre Beaujean}
 \author{Benoît Champagne}
@@ -42,9 +42,12 @@
 
 \section{Introduction}
 
-In nonlinear optics (NLO), promising molecular architectures often belong to the push-pull family. These structures typically consist of electron donor and acceptor groups connected by a $\pi$-conjugated segment that facilitates electronic ``communication'' between the two moieties.
-
-To elucidate the relationships between NLO properties and structure, simplified models have been developed to capture complex phenomena with minimal parameters. The valence-bond charge-transfer (VB-CT) model, pioneered by Mulliken \cite{mullikenMolecularCompoundsTheir1952}, has been particularly successful in describing the first hyperpolarizabilities of push-pull polyenes. It also applies to other properties, such as UV/VIS absorption spectra and various physico-chemical characteristics \cite{benderTheoreticalModelsChargetransfer1986}. This model represents a system as a superposition of two limiting states, a valence-bond state, $\phi_{VB}$, and a charge-transfer state, $\phi_{CT}$, connected by electron displacement from the donor to the acceptor (Scheme \ref{sc:vbct}). Using fundamental parameters, such as the ionization energy of the donor, electron affinity of the acceptor, and the coupling between these states, the VB-CT model provides valuable insight into structure-activity relationships.  Indeed, when combined with the sum-over-states (SOS) theory developed by Orr and Ward \cite{orrPerturbationTheoryNonlinear1971}, these models provide estimate of NLO properties and identification of valuable structure-activity relationships.
+This paper focuses on the first hyperpolarizability, $\beta$, the molecular second-order nonlinear optical (NLO) response that is associated with phenomenon like the second harmonic generation (SHG). Indeed, the discovery of Second Harmonic Generation (SHG) by Franken \latin{et al.}\cite{frankenGenerationOpticalHarmonics1961} has fostered a large amount of research activities, aiming at applications in materials and life sciences. Applications encompass materials with large SHG responses for applications in frequency doublers\cite{konotopNonreciprocalFrequencyDoubler2002} and the design of SHG sensors.\cite{campagnolaHighResolutionNonlinearOptical1999,moreauxMembraneImagingSimultaneous2000,tranApplicationsSurfaceSecond2017} The SHG response is also probed to reveal the structure and dynamics of molecule\cite{beaujeanMultiStateSecondOrderNonlinear2022,hoodSynthesisOpticalNonlinear2024} and interfaces.\cite{tonneleNonlinearOpticalResponses2018,bouquiauxSecondOrderNonlinearOptical2020,ramosModelingSecondHarmonic2025}
+Promising molecular architectures often belong to the push-pull family. These structures typically consist of a pair of electron donor and acceptor groups connected by a $\pi$-conjugated segment that facilitates the electronic ``communication'' between the two moieties.\cite{oudarHyperpolarizabilitiesNitroanilinesTheir1977,zyssMolecularEngineeringImplications1993,bourhillExperimentalDemonstrationDependence1994,dalton25YearsOrganic2019} To maximize $\beta$, two (non-orthogonal) strategies have been broadly employed: \begin{inparaenum}[i)]
+	\item choosing an appropriate pair of donor and acceptor, and
+	\item controlling the length and nature of the $\pi$-conjugated path.
+\end{inparaenum}
+To elucidate the relationships between the $\beta$ response and the structure, simplified models have been developed to capture complex phenomena with minimal parameters. The valence-bond charge-transfer (VB-CT) model, pioneered by Mulliken \cite{mullikenMolecularCompoundsTheir1952}, has been particularly insightful in describing the first hyperpolarizabilities of push-pull polyenes. It also applies to other properties, such as UV/VIS absorption spectra and various physico-chemical characteristics \cite{benderTheoreticalModelsChargetransfer1986}. This model represents a system as a superposition of two limiting states, a valence-bond state, $\phi_{VB}$, and a charge-transfer state, $\phi_{CT}$, related by the electron displacement from the donor to the acceptor (Scheme \ref{sc:vbct}). Using fundamental parameters, such as the ionization energy of the donor, the electron affinity of the acceptor, and the coupling between these states, the VB-CT model provides valuable insight into structure-activity relationships.  Indeed, when combined with the sum-over-states (SOS) theory developed by Orr and Ward \cite{orrPerturbationTheoryNonlinear1971}, these models provide estimate of the $\beta$ response and identification of valuable structure-activity relationships.
 
 
 \begin{scheme}[!h]
@@ -54,29 +57,30 @@ To elucidate the relationships between NLO properties and structure, simplified 
 	\label{sc:vbct}
 \end{scheme}
 
-Despite its simplicity, this model has proven versatile, allowing extensions to systems with multiple donor/acceptor groups through 3-state \cite{hahnNonlinearOpticalProperties1999,barzoukasMolecularEngineeringPush2000,yangLargeOffDiagonalContribution2003}, 4-state \cite{choElementaryDescriptionNonlinear1998}, and 5-state \cite{choNonlinearOpticalProperties2002} descriptions. 
+Despite its simplicity, this model has proven versatile, allowing extensions to compounds with multiple donor/acceptor groups through 3-state \cite{hahnNonlinearOpticalProperties1999,barzoukasMolecularEngineeringPush2000,yangLargeOffDiagonalContribution2003}, 4-state \cite{choElementaryDescriptionNonlinear1998}, and 5-state \cite{choNonlinearOpticalProperties2002} descriptions. 
 Further generalization are also possible\cite{alamGeneralizedFewstateModel2020} in order to get deeper understanding of the NLO responses, although at the cost of an increasingly large number of parameters.
-However, to the best of our knowledge, a comparison of the performances of these different model has not been attempted. Therefore, this paper aims at providing a comparative analysis of the  VB-$n$CT models with $n$=1-4  (Scheme \ref{sc:vbct}) .  To provide further insights, this analysis is performed  using the experimental quantities found using the second harmonic scattering measurement technique.\cite{verbiestSecondOrderNonlinearOptical2009}
-It is organized as following: after a brief reminder of the different formulations of the VB-$n$CT models, of the relevant quantities, and of the different models, the main results are compared. Finally, the last section draws conclusions and perspectives.
+As shown in Scheme \ref{sc:mct}, the few state models are associated with chemical structures displaying various symmetries.
+However, to the best of our knowledge, a comparison of the NLO performances of these different compounds has not yet been attempted. Therefore, this paper aims at providing a comparative analysis of the  VB-$n$CT models with $n$=1-4  (Scheme \ref{sc:mct}) .  To provide further insights, this analysis is performed  by analyzing $\beta$ quantities that can be experimentally probed using the second harmonic scattering (SHS) technique.\cite{verbiestSecondOrderNonlinearOptical2009,baumeierDensityfunctionalBasedDetermination2010,zhangTheoreticalInvestigationFirst2013,sistoInitioNonadiabaticDynamics2014,dellaiDynamicEffectsNonlinear2024}
+It is organized as following: after a brief reminder of the different formulations of the VB-$n$CT models, of the relevant quantities, and of the different symmetries, the main results are compared. Finally, the last section draws conclusions and perspectives.
 
 \begin{scheme}
-	\caption{Simplified representation of the successive VB-$n$CT models ($n\in[1,4]$, adapted from Cho \latin{et al.}\cite{choNonlinearOpticalProperties2002}, with the charge transfer integrals $t$ and $T$). Donor (D, in blue) and acceptor (A, in red) can be swapped without loss of generality.}
+	\caption{Simplified representation of second-order NLO compounds displaying different symmetries and their successive VB-$n$CT models ($n\in[1,4]$, adapted from Cho \latin{et al.}\cite{choNonlinearOpticalProperties2002}, with the charge transfer integrals $t$ and $T$). Donor (D, in blue) and acceptor (A, in red) can be swapped without loss of generality.}
 	\label{sc:mct}
-	\includegraphics[width=.5\linewidth]{Scheme2}
+	\includegraphics[width=.7\linewidth]{Scheme2}
 \end{scheme}
 
 
-
+\clearpage
 \section{Theory \label{sec:theory}}
 
 \subsection{A model Hamiltonian for the VB-$n$CT model}
 
-Using the variational approach, given a set of basis functions $\{\phi_i\}$, the energy of a trial function $\Psi = \sum_i c_i \phi_i$ is always greater than or equal to the true ground state energy, $\varepsilon_0$:\begin{equation}
+Using the variational approach, given a set of basis functions $\{\phi_i\}$, the energy of a trial function $\Psi = \sum_i c_i \phi_i$ is always greater than or equal to the true ground state energy, $\mathcal E_0$:\begin{equation}
 	\mathcal E_0 \leq 	\mathcal E, \text{ where }	\mathcal E = \frac{\braket{\Psi|H|\Psi}}{\braket{\Psi|\Psi}}, \label{eq:variational}
 \end{equation}
 One minimizes the energy of the trial function by setting $\frac{d	\mathcal E}{dc_i} = 0$. 
 This yields a set of so-called secular equations of the form:\begin{equation}
-	\forall k: \sum_i c_i (H_{ki} - \varepsilon_k S_{ki}) = 0, 
+	\forall k: \sum_i  (H_{ki} - \varepsilon_k S_{ki})\,c_i  = 0, 
 \end{equation}
 where $S_{ki} = \braket{\phi_k | \phi_i}$ (overlap matrix) and $H_{ki} = \braket{\phi_k | \hat{H} | \phi_i}$ (Hamiltonian matrix). 
 This is a generalized eigenvalue problem. 
@@ -84,16 +88,16 @@ If the basis functions are orthogonal, i.e., $S_{ki} = \delta_{k,i}$, this reduc
 
 In the VB-$n$CT framework, corresponding to a $(n+1)$-state model, a set of orthogonal functions is employed consisting of one valence-bond (VB) state, $\phi_{VB}$, and $n$ charge-transfer (CT) states, $\{\phi_{CT,i}|0<i\leq n\}$. This leads to a model Hamiltonian, given by a $(n+1)\times(n+1)$ matrix and parameterized as follows:
 \begin{align}
-	&\braket{\phi_{VB}|\hat{H}|\phi_{VB}} = E_{VB}, 
-	\braket{\phi_{VB}|\hat{H}|\phi_{CT,i}} = -t, \text{ and } 
-	\braket{\phi_{CT,i}|\hat{H}|\phi_{CT,j}} = \begin{cases}
+	&\braket{\phi_{VB}|\hat{H}|\phi_{VB}} = E_{VB}, \nonumber\\
+	&\braket{\phi_{VB}|\hat{H}|\phi_{CT,i}} = -t, \nonumber\\
+	&\braket{\phi_{CT,i}|\hat{H}|\phi_{CT,j}} = \begin{cases}
 		E_{CT} & \text{if } i=j,\\
 		-T & \text{otherwise},
 	\end{cases}\label{eq:hamilonian}
 \end{align}
 where $E_{VB}$ and $E_{CT}$ denote the energies of the VB and CT states, respectively, while $t$ and $T$ are the transfer integrals. 
 
-Solving the eigenvalue problem yields a ground state, $\ket{0}$, with minimal energy, a set of $(n-1)$-fold degenerate excited states, $\{\ket{e_i} | 0<i< n\}$ (which does not exists when $n=1$), and a single non-degenerate excited state, $\ket{f}$.
+Solving the eigenvalue problem yields a ground state, $\ket{0}$, with minimal energy, a set of $(n-1)$-fold degenerate excited states, $\{\ket{e_i} | 0<i< n\}$ (which does not exist when $n=1$), and a single non-degenerate excited state, $\ket{f}$.
 Corresponding eigenvalues were provided by Cho \emph{et al.} \cite{choNonlinearOpticalProperties2002} and are, in all generality, given by:
 \begin{align}
 	E_{0} &= \frac{1}{2} \left[E_{VB} + E_{CT} - (n-1)T - \sqrt{(V - (n-1)T)^2 + 4nt^2}\right], \nonumber\\
@@ -113,13 +117,14 @@ Minimizing the ground-state energy $E_0$ with respect to $\delta$ (see Eq.~\eqre
 \begin{equation}
 	\frac{\partial E_0(\delta)}{\partial \delta} = 0 \Rightarrow V - (n-1)T = 2t \sqrt{n} \cot(2\delta). \label{eq:cot}
 \end{equation}
-Setting the energy origin to:
+Setting the energy origin to satisfy the following relationship: 
 \begin{equation}
 	E_{VB} + E_{CT} - (n-1)T = 0, \label{eq:eorig}
 \end{equation}
 simplifies the eigenvalues to:
 \begin{align}
-	&E_{0} = -\sqrt{n} \frac{t}{\sin(2\delta)}, E_{e_i} = nT + t \sqrt{n} \cot(2\delta),\nonumber\\
+	&E_{0} = -\sqrt{n} \frac{t}{\sin(2\delta)}, \nonumber\\
+	&E_{e_i} = nT + t \sqrt{n} \cot(2\delta),\nonumber\\
 	&E_{f} =  \frac{t}{\sin(2\delta)}\sqrt{n}.\label{eq:energies}
 \end{align}
 In the following analysis, difference between the state energies are employed:\begin{align}
@@ -131,22 +136,34 @@ To monitor variations in molecular properties, the charge-transfer (CT) characte
 \begin{equation}
 	\ell_{CT} = \frac{1}{n} \sin^2 \delta.
 \end{equation}
-With $\delta \in [0, \nicefrac{\pi}{2}]$, $\ell_{CT}$ varies in the range $\ell_{CT} \in [0, \nicefrac{1}{n}]$. A value of $\ell_{CT} = 0$ indicates a ground state fully described by the VB form, while $\ell_{CT} = \nicefrac{1}{n}$ corresponds to a state entirely characterized by CT. 
+with $\delta \in [0, \nicefrac{\pi}{2}]$, $\ell_{CT}$ varies in the range $\ell_{CT} \in [0, \nicefrac{1}{n}]$. A value of $\ell_{CT} = 0$ indicates a ground state fully described by the VB form, while $\ell_{CT} = \nicefrac{1}{n}$ corresponds to a state entirely characterized by CT.  The eigenvalues become:\begin{align}
+	E_{0} &= -\frac{t}{2\,\sqrt{\ell_{CT}\,(1-n\ell_{CT})}},\nonumber\\
+	E_{e_i} &= nT +\,\frac{t\,(1-2\,n\ell_{CT})}{2\,\sqrt{\ell_{CT}\,(1-n\ell_{CT})}}\nonumber \\
+	E_{f} &= \frac{t}{2\,\sqrt{\ell_{CT}\,(1-n\ell_{CT})}},
+\end{align}
+and $\ket{0}$ and $\ket{f}$ may be also defined as ($\ket{{e_i}}$ remains the same):\begin{align}
+	\ket{0} &= \sqrt{1-n\ell_{CT}}\,\ket{\psi_{VB}} + \sqrt{\ell_{CT}}\,\sum_j^n \ket{\psi_{CT,j}},\nonumber\\
+	\ket{f} &= \sqrt{n\ell_{CT}}\,\ket{\psi_{VB}} - \sqrt{\frac{1}{n}-\ell_{CT}}\,\sum_j^n \ket{\psi_{CT,j}},
+\end{align}
+while the excitation energies become:\begin{align}
+	\Delta E_{0e}&= nT + t\,\sqrt{\frac{1}{\ell_{CT}}-n},\\
+	\Delta E_{0f} &= \frac{t}{\sqrt{\ell_{CT}\,(1-n\ell_{CT})}}.
+\end{align}
 An additional parameter, introduced by Barzoukas and collaborators \cite{barzoukasTWOFORMDESCRIPTIONPUSHPULL1996,barzoukasTwostateDescriptionHyper1996,blanchard-desceTwoformTwostateAnalysis1998a}, measures the VB-CT mixing:
 \begin{equation}
 	m_{CT} = -\cos(2\delta) = 2n \ell_{CT} - 1.
 \end{equation} 
-This parameter, $m_{CT}$, ranges from $-1$ (VB-dominated) to $+1$ (CT-dominated), effectively capturing the balance between VB and CT character in the ground state. In that framework, the eigenvalues become:\begin{align}
-E_{0} = -t\,\sqrt{\frac{n}{1-m_{CT}^2}},
-E_{e_i} = nT -t\,\sqrt{n}\,\frac{m_{CT}}{\sqrt{1-m_{CT}^2}},
-E_{f} = t\,\sqrt{\frac{n}{1-m_{CT}^2}},
+This parameter, $m_{CT}$, ranges from $-1$ (VB-dominated) to $+1$ (CT-dominated), effectively capturing the balance between the VB and CT characters in the ground state. In that framework, the eigenvalues become:\begin{align}
+&E_{0} = -t\,\sqrt{\frac{n}{1-m_{CT}^2}}, \nonumber\\
+&E_{e_i} = nT -t\,\sqrt{n}\,\frac{m_{CT}}{\sqrt{1-m_{CT}^2}},\nonumber\\
+&E_{f} = t\,\sqrt{\frac{n}{1-m_{CT}^2}},
 \end{align} 
 and the excitation energies now read:\begin{align}
-	\Delta E_{0e}= nT + t\,\sqrt{n\,\frac{1-m_{CT}}{1+m_{CT}}}, \Delta E_{0f} = 2t\,\sqrt{\frac{n}{1-m_{CT}^2}}. \label{eq:energiesmct}
+	&\Delta E_{0e}= nT + t\,\sqrt{n\,\frac{1-m_{CT}}{1+m_{CT}}}, \nonumber\\
+	&\Delta E_{0f} = 2t\,\sqrt{\frac{n}{1-m_{CT}^2}}. \label{eq:energiesmct}
 \end{align}
 The evolution of excitation energies as a function of $m_{CT}$ is shown in Fig.~\ref{fig:eexci}. Notably, both $\Delta E_{0e}$ and $\Delta E_{0f}$ diverge to $+\infty$ as $m_{CT} \to -1$. Similarly, $\Delta E_{0f}$ also tends to $+\infty$ when $m_{CT} \to 1$.  
-Moreover, $\Delta E_{0e}$ exhibits a minimum at $m_{CT} = 1$, where $\Delta E_{0e} = nT$, while $\Delta E_{0f}$ reaches its minimum at $m_{CT} = 0$, with $\Delta E_{0f} = 2t\sqrt{n}$. Finally, decreasing both $t$ and $T$ lead to a decrease in $\Delta E_{0f}$ and $\Delta E_{0e}$. This will become important in the following sections, since $X^{(n)} \propto \frac{1}{\Delta E^n} \propto \frac{1}{t^n}$ (see below).
-
+Moreover, $\Delta E_{0e}$ exhibits a minimum at $m_{CT} = 1$, where $\Delta E_{0e} = nT$, while $\Delta E_{0f}$ reaches its minimum at $m_{CT} = 0$, with $\Delta E_{0f} = 2t\sqrt{n}$. Finally, decreasing both $t$ and $T$ leads to a decrease in $\Delta E_{0f}$ and $\Delta E_{0e}$. This will become important in the following sections, since $X^{(n)} \propto \frac{1}{\Delta E^n} \propto \frac{1}{t^n}$ (see below).
 
 \begin{figure}[!h]
 	\includegraphics[width=.7\linewidth]{Figure1}
