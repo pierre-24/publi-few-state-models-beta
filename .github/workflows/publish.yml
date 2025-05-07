@@ -38,7 +38,7 @@ jobs:
            make
       - name: build PDFs
         run: |
-           latexmk -lualatex
+           latexmk -pdflatex
       - name: Upload main text
         uses: svenstaro/upload-release-action@v2
         with:

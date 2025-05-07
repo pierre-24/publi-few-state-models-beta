@@ -1,15 +1,10 @@
-\documentclass[journal=jpcafh]{achemso}
+\documentclass[USenglish]{article}
+\usepackage[big,online]{dgruyter}
 
-\usepackage{booktabs}
 \usepackage{paralist}
 \usepackage{nicefrac}
 \usepackage{hyperref}
 \usepackage{rotating}
-
-\usepackage{subcaption}
-\newcounter{subscheme}
-\renewcommand{\thesubfigure}{\alph{subfigure}}
-\renewcommand{\thesubscheme}{\thescheme\alph{subscheme}}
 
 \usepackage{siunitx}
 \DeclareSIUnit \au{a.u.}
@@ -24,50 +19,56 @@
 
 \title{Influence of symmetry on the second-order NLO properties: insights from the few state approximation}
 \date{Version of \today}
-\author{Pierre Beaujean}
-\author{Benoît Champagne}
-\email{benoit.champagne@unamur.be}
-\affiliation{Laboratory of Theoretical Chemistry, 
+
+\articletype{Research Article}
+
+\author[unamur]{Pierre Beaujean}
+\author*[unamur]{Benoît Champagne}
+\affil[unamur]{Laboratory of Theoretical Chemistry, 
 	Unit of Theoretical and Structural Physical Chemistry, 
 	Namur Institute of Structured Matter, 
 	University of Namur, 
-	Rue de Bruxelles 61, B-5000 Namur, Belgium}
+	Rue de Bruxelles 61, B-5000 Namur, Belgium,
+	email: \url{benoit.champagne@unamur.be}}
+
+\runningauthor{P. Beaujean et al.}
+\runningtitle{Impact of symmetry on $\beta$: insights from few state models}
+
+\abstract{TO BE CONTINUED.}
+\keywords{Nonlinear optics, second harmonic generation, few state models}
+
+\journalname{Pure Appl. Chem.}
 
 \begin{document}
 \maketitle
 
-\begin{abstract}
-	TO BE CONTINUED
-\end{abstract}
-
 \section{Introduction}
 
-This paper focuses on the first hyperpolarizability, $\beta$, the molecular second-order nonlinear optical (NLO) response that is associated with phenomenon like the second harmonic generation (SHG). Indeed, the discovery of Second Harmonic Generation (SHG) by Franken \latin{et al.}\cite{frankenGenerationOpticalHarmonics1961} has fostered a large amount of research activities, aiming at applications in materials and life sciences. Applications encompass materials with large SHG responses for applications in frequency doublers\cite{konotopNonreciprocalFrequencyDoubler2002} and the design of SHG sensors.\cite{campagnolaHighResolutionNonlinearOptical1999,moreauxMembraneImagingSimultaneous2000,tranApplicationsSurfaceSecond2017} The SHG response is also probed to reveal the structure and dynamics of molecule\cite{beaujeanMultiStateSecondOrderNonlinear2022,hoodSynthesisOpticalNonlinear2024} and interfaces.\cite{tonneleNonlinearOpticalResponses2018,bouquiauxSecondOrderNonlinearOptical2020,ramosModelingSecondHarmonic2025}
-Promising molecular architectures often belong to the push-pull family. These structures typically consist of a pair of electron donor and acceptor groups connected by a $\pi$-conjugated segment that facilitates the electronic ``communication'' between the two moieties.\cite{oudarHyperpolarizabilitiesNitroanilinesTheir1977,zyssMolecularEngineeringImplications1993,bourhillExperimentalDemonstrationDependence1994,dalton25YearsOrganic2019} To maximize $\beta$, two (non-orthogonal) strategies have been broadly employed: \begin{inparaenum}[i)]
+This paper focuses on the first hyperpolarizability, $\beta$, the molecular second-order nonlinear optical (NLO) response that is associated with phenomenon like the second harmonic generation (SHG). Indeed, the discovery of Second Harmonic Generation (SHG) by Franken \textit{et al.}\cite{frankenGenerationOpticalHarmonics1961} has fostered a large amount of research activities, aiming at applications in materials and life sciences. Applications encompass materials with large SHG responses for applications in frequency doublers \cite{konotopNonreciprocalFrequencyDoubler2002} and the design of SHG sensors \cite{campagnolaHighResolutionNonlinearOptical1999,moreauxMembraneImagingSimultaneous2000,tranApplicationsSurfaceSecond2017}. The SHG response is also probed to reveal the structure and dynamics of molecule \cite{beaujeanMultiStateSecondOrderNonlinear2022,hoodSynthesisOpticalNonlinear2024} and interfaces \cite{tonneleNonlinearOpticalResponses2018,bouquiauxSecondOrderNonlinearOptical2020,ramosModelingSecondHarmonic2025}.
+Promising molecular architectures often belong to the push-pull family. These structures typically consist of a pair of electron donor and acceptor groups connected by a $\pi$-conjugated segment that facilitates the electronic ``communication'' between the two moieties \cite{oudarHyperpolarizabilitiesNitroanilinesTheir1977,zyssMolecularEngineeringImplications1993,bourhillExperimentalDemonstrationDependence1994,dalton25YearsOrganic2019}. To maximize $\beta$, two (non-orthogonal) strategies have been broadly employed: \begin{inparaenum}[i)]
 	\item choosing an appropriate pair of donor and acceptor, and
 	\item controlling the length and nature of the $\pi$-conjugated path.
 \end{inparaenum}
-To elucidate the relationships between the $\beta$ response and the structure, simplified models have been developed to capture complex phenomena with minimal parameters. The valence-bond charge-transfer (VB-CT) model, pioneered by Mulliken \cite{mullikenMolecularCompoundsTheir1952}, has been particularly insightful in describing the first hyperpolarizabilities of push-pull polyenes. It also applies to other properties, such as UV/VIS absorption spectra and various physico-chemical characteristics \cite{benderTheoreticalModelsChargetransfer1986}. This model represents a system as a superposition of two limiting states, a valence-bond state, $\phi_{VB}$, and a charge-transfer state, $\phi_{CT}$, related by the electron displacement from the donor to the acceptor (Scheme \ref{sc:vbct}). Using fundamental parameters, such as the ionization energy of the donor, the electron affinity of the acceptor, and the coupling between these states, the VB-CT model provides valuable insight into structure-activity relationships.  Indeed, when combined with the sum-over-states (SOS) theory developed by Orr and Ward \cite{orrPerturbationTheoryNonlinear1971}, these models provide estimate of the $\beta$ response and identification of valuable structure-activity relationships.
+To elucidate the relationships between the $\beta$ response and the structure, simplified models have been developed to capture complex phenomena with minimal parameters. The valence-bond charge-transfer (VB-CT) model, pioneered by Mulliken \cite{mullikenMolecularCompoundsTheir1952}, has been particularly insightful in describing the first hyperpolarizabilities of push-pull polyenes. It also applies to other properties, such as UV/VIS absorption spectra and various physico-chemical characteristics \cite{benderTheoreticalModelsChargetransfer1986}. This model represents a system as a superposition of two limiting states, a valence-bond state, $\phi_{VB}$, and a charge-transfer state, $\phi_{CT}$, related by the electron displacement from the donor to the acceptor (Fig.~\ref{sc:vbct}). Using fundamental parameters, such as the ionization energy of the donor, the electron affinity of the acceptor, and the coupling between these states, the VB-CT model provides valuable insight into structure-activity relationships.  Indeed, when combined with the sum-over-states (SOS) theory developed by Orr and Ward \cite{orrPerturbationTheoryNonlinear1971}, these models provide estimate of the $\beta$ response and identification of valuable structure-activity relationships.
 
 
-\begin{scheme}[!h]
-	\centering
-	\includegraphics[width=.5\linewidth]{Scheme1}
+\begin{figure}[!h]
+	\includegraphics[width=.5\linewidth]{Figure1}
 	\caption{Limiting forms of the VB-CT model.}
 	\label{sc:vbct}
-\end{scheme}
+\end{figure}
 
 Despite its simplicity, this model has proven versatile, allowing extensions to compounds with multiple donor/acceptor groups through 3-state \cite{hahnNonlinearOpticalProperties1999,barzoukasMolecularEngineeringPush2000,yangLargeOffDiagonalContribution2003}, 4-state \cite{choElementaryDescriptionNonlinear1998}, and 5-state \cite{choNonlinearOpticalProperties2002} descriptions. 
-Further generalization are also possible\cite{alamGeneralizedFewstateModel2020} in order to get deeper understanding of the NLO responses, although at the cost of an increasingly large number of parameters.
-As shown in Scheme \ref{sc:mct}, the few state models are associated with chemical structures displaying various symmetries.
-However, to the best of our knowledge, a comparison of the NLO performances of these different compounds has not yet been attempted. Therefore, this paper aims at providing a comparative analysis of the  VB-$n$CT models with $n$=1-4  (Scheme \ref{sc:mct}) .  To provide further insights, this analysis is performed  by analyzing $\beta$ quantities that can be experimentally probed using the second harmonic scattering (SHS) technique.\cite{verbiestSecondOrderNonlinearOptical2009,baumeierDensityfunctionalBasedDetermination2010,zhangTheoreticalInvestigationFirst2013,sistoInitioNonadiabaticDynamics2014,dellaiDynamicEffectsNonlinear2024}
+Further generalization are also possible \cite{alamGeneralizedFewstateModel2020} in order to get deeper understanding of the NLO responses, although at the cost of an increasingly large number of parameters.
+As shown in Fig.~\ref{sc:mct}, the few state models are associated with chemical structures displaying various symmetries.
+However, to the best of our knowledge, a comparison of the NLO performances of these different compounds has not yet been attempted. Therefore, this paper aims at providing a comparative analysis of the  VB-$n$CT models with $n$=1-4  (Fig.~\ref{sc:mct}) .  To provide further insights, this analysis is performed  by analyzing $\beta$ quantities that can be experimentally probed using the second harmonic scattering (SHS) technique \cite{verbiestSecondOrderNonlinearOptical2009,baumeierDensityfunctionalBasedDetermination2010,zhangTheoreticalInvestigationFirst2013,sistoInitioNonadiabaticDynamics2014,dellaiDynamicEffectsNonlinear2024}.
 It is organized as following: after a brief reminder of the different formulations of the VB-$n$CT models, of the relevant quantities, and of the different symmetries, the main results are compared. Finally, the last section draws conclusions and perspectives.
 
-\begin{scheme}
-	\caption{Simplified representation of second-order NLO compounds displaying different symmetries and their successive VB-$n$CT models ($n\in[1,4]$, adapted from Cho \latin{et al.}\cite{choNonlinearOpticalProperties2002}, with the charge transfer integrals $t$ and $T$). Donor (D, in blue) and acceptor (A, in red) can be swapped without loss of generality.}
+\begin{figure}
+	\includegraphics[width=.7\linewidth]{Figure2}
+	\caption{Simplified representation of second-order NLO compounds displaying different symmetries and their successive VB-$n$CT models ($n\in[1,4]$, adapted from Cho \textit{et al.} \cite{choNonlinearOpticalProperties2002}, with the charge transfer integrals $t$ and $T$). Donor (D, in blue) and acceptor (A, in red) can be swapped without loss of generality.}
 	\label{sc:mct}
-	\includegraphics[width=.7\linewidth]{Scheme2}
-\end{scheme}
+\end{figure}
 
 
 \clearpage
@@ -76,7 +77,7 @@ It is organized as following: after a brief reminder of the different formulatio
 \subsection{A model Hamiltonian for the VB-$n$CT model}
 
 Using the variational approach, given a set of basis functions $\{\phi_i\}$, the energy of a trial function $\Psi = \sum_i c_i \phi_i$ is always greater than or equal to the true ground state energy, $\mathcal E_0$:\begin{equation}
-	\mathcal E_0 \leq 	\mathcal E, \text{ where }	\mathcal E = \frac{\braket{\Psi|H|\Psi}}{\braket{\Psi|\Psi}}, \label{eq:variational}
+	\mathcal E_0 \leq 	\mathcal E, \text{ where }	\mathcal E = \frac{\braket{\Psi|H|\Psi}}{\braket{\Psi|\Psi}}. \label{eq:variational}
 \end{equation}
 One minimizes the energy of the trial function by setting $\frac{d	\mathcal E}{dc_i} = 0$. 
 This yields a set of so-called secular equations of the form:\begin{equation}
@@ -166,7 +167,7 @@ The evolution of excitation energies as a function of $m_{CT}$ is shown in Fig.~
 Moreover, $\Delta E_{0e}$ exhibits a minimum at $m_{CT} = 1$, where $\Delta E_{0e} = nT$, while $\Delta E_{0f}$ reaches its minimum at $m_{CT} = 0$, with $\Delta E_{0f} = 2t\sqrt{n}$. Finally, decreasing both $t$ and $T$ leads to a decrease in $\Delta E_{0f}$ and $\Delta E_{0e}$. This will become important in the following sections, since $X^{(n)} \propto \frac{1}{\Delta E^n} \propto \frac{1}{t^n}$ (see below).
 
 \begin{figure}[!h]
-	\includegraphics[width=.7\linewidth]{Figure1}
+	\includegraphics[width=.7\linewidth]{Figure3}
 	\caption{Evolution of the reduced $\ket{0}\to\ket{f}$ ($\Delta E_{0f} / t$, unitless, top) and $\ket{0}\to\ket{e}$ ($\Delta E_{0e} /t$, unitless, bottom) excitation energies, computed using $T = t/2$, as a function of the charge transfer character of the ground state ($m_{CT}$).}
 	\label{fig:eexci}
 \end{figure}
@@ -215,19 +216,19 @@ As a result, the ground-state, transition, and excited-state dipole moments are 
 \subsection{Tensor invariants}
 
 For an isotropic medium composed of identical molecules or scatterers, the intensity, $I^{(n\omega)}$, of the incoherent contribution to the $n$-uple harmonic scattered light is proportional to an isotropic (or rotational) averaging of the tensor elements over all possible molecular orientations, $\braket{X^{(n)}}$ \cite{Andrews1980,verbiest_second-order_2009,Castet2012,fordMolecularTensorAnalysis2018}.
-For the second harmonic scattering (SHS), the conventional experimental setup is the hyper-Rayleigh scattering (HRS) technique\cite{verbiestSecondOrderNonlinearOptical2009}, where the scattered light is analyzed at a \SI{90}{\degree} angle with respect to the direction of propagation ($Y$), the fundamental light beam (of frequency $\omega$) is $Z$- or $X$-polarized (in the laboratory frame), while the $Z$-linearly polarized component of the scattered beam (of frequency $2\omega$) is recorded in the $X$ direction. One can thus distinguish between two polarization combinations: the VV geometry (vertical-vertical, both incident and scattered lights are $Z$-polarized) and HV [horizontal-vertical, the incident (scattered) light is $X$ ($Z$)-polarized]. The $I_{VV}$ intensity is proportional to $\braket{\beta_{ZZZ}^2}$, while $I_{HV}$ is proportional to $\braket{\beta_{ZXX}^2}$.
+For the second harmonic scattering (SHS), the conventional experimental setup is the hyper-Rayleigh scattering (HRS) technique \cite{verbiestSecondOrderNonlinearOptical2009}, where the scattered light is analyzed at a \SI{90}{\degree} angle with respect to the direction of propagation ($Y$), the fundamental light beam (of frequency $\omega$) is $Z$- or $X$-polarized (in the laboratory frame), while the $Z$-linearly polarized component of the scattered beam (of frequency $2\omega$) is recorded in the $X$ direction. One can thus distinguish between two polarization combinations: the VV geometry (vertical-vertical, both incident and scattered lights are $Z$-polarized) and HV [horizontal-vertical, the incident (scattered) light is $X$ ($Z$)-polarized]. The $I_{VV}$ intensity is proportional to $\braket{\beta_{ZZZ}^2}$, while $I_{HV}$ is proportional to $\braket{\beta_{ZXX}^2}$.
 For a non-po\-la\-ri\-zed incident signal, both polarizations have equal probability and the intensity becomes proportional to the sum of the HV and VV observables. This allows defining $\beta_{SHS}$, the average first hyperpolarizability, and a depolarization ratio:\begin{align}
 	&\beta_{SHS} = \sqrt{\braket{\beta_{ZZZ}^2}+\braket{\beta_{ZXX}^2}}, \nonumber\\
 	&\text{DR}_{SHS} = \frac{\braket{\beta_{ZZZ}^2}}{\braket{\beta_{ZXX}^2}}.\label{eq:bhrs}
 \end{align}
-Furthermore, the $\beta$ tensor can be decomposed into irreducible spherical components\cite{Jerphagnon1978}. When assuming the Kleinman's conditions (since only the static case is addressed in this article), $\beta$ contains a dipolar ($J$ = 1) and an octupolar ($J$ = 3) component \cite{Brasselet1998}, expressed as:\begin{align}
+Furthermore, the $\beta$ tensor can be decomposed into irreducible spherical components \cite{Jerphagnon1978}. When assuming the Kleinman's conditions (since only the static case is addressed in this article), $\beta$ contains a dipolar ($J$ = 1) and an octupolar ($J$ = 3) component \cite{Brasselet1998}, expressed as:\begin{align}
 	&|\beta_{J=1}|^2 = \frac{3}{5}\sum_{\zeta\eta\kappa}^{x,y,z} \beta_{\zeta\eta\eta}\beta_{\zeta\kappa\kappa},\nonumber\\
 	&\beta_{J=3}|^2 =\sum_{\zeta\eta\kappa}^{x,y,z} \beta_{\zeta\eta\kappa}^2 - \frac{3}{5} \beta_{\zeta\eta\eta}\beta_{\zeta\kappa\kappa}. \label{eq:bj}
 \end{align}
 As a consequence:\begin{align}
 		&\braket{\beta^2_{ZZZ}} =  \frac{1}{5}\,|\beta_{J=1}|^2+\frac{2}{35}\,|\beta_{J=3}|^2,\nonumber\\ &\braket{\beta^2_{ZXX}} = \frac{1}{45}\,|\beta_{J=1}|^2+\frac{4}{105}\,|\beta_{J=3}|^2.\label{eq:beta2}
 \end{align}
-Notably, it implies that in the octupolar limit (when $|\beta_{J=3}|^2 \gg |\beta_{J=1}|^2$) DR$_{SHS}\to\frac{3}{2}$, which is the minimal value it can take. It reaches a maximal value of $9$ in the dipolar limit.\cite{verbiest_second-order_2009}
+Notably, it implies that in the octupolar limit (when $|\beta_{J=3}|^2 \gg |\beta_{J=1}|^2$) DR$_{SHS}\to\frac{3}{2}$, which is the minimal value it can take. It reaches a maximal value of $9$ in the dipolar limit \cite{verbiest_second-order_2009}.
 
 Note that as a consequence of Eq.~\eqref{eq:reduced}, one can define $\tilde\beta_{SHS}$ in a similar way.
 
@@ -239,22 +240,21 @@ The following model systems are considered in this article. For each of them, th
 	\item the rotational invariants [obtained using Eq.~\eqref{eq:beta2}]
 \end{inparaenum} are reported in the Supporting Information (SI).
 
-\paragraph{Two-state $C_{\infty v}$ systems.}  
+\subsubsection{Two-state $C_{\infty v}$ systems.}  
 This model consists of a single donor-acceptor (D/A) pair, typically positioned at the extremities of a $\pi$-conjugated linker. For convenience, it is oriented along the $z$-axis, such that the charge transfer dipole moment is given by:  
 \begin{equation*}
 	\vec{\mu}_{CT} = \mu_{CT} \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}.
 \end{equation*}
 
-\paragraph{Three-state $C_{2v}$ systems.}  
-This system extends the two-state model by introducing two charge transfer (CT) states with dipole moments forming an angle $\theta \in [0, \nicefrac{\pi}{2}]$ relative to the $z$-axis \cite{yangLargeOffDiagonalContribution2003}, as illustrated in Scheme~\ref{sc:mu}. The dipole moments are thus expressed as:  
+\subsubsection{Three-state $C_{2v}$ systems.}  
+This system extends the two-state model by introducing two charge transfer (CT) states with dipole moments forming an angle $\theta \in [0, \nicefrac{\pi}{2}]$ relative to the $z$-axis \cite{yangLargeOffDiagonalContribution2003}, as illustrated in Fig.~\ref{sc:mu}. The dipole moments are thus expressed as:  
 \begin{equation*}
 	\vec{\mu}_{CT,1} = \mu_{CT} \begin{pmatrix} \sin\theta \\ 0 \\ \cos\theta \end{pmatrix}, \quad  
 	\vec{\mu}_{CT,2} = \mu_{CT} \begin{pmatrix} -\sin\theta \\ 0 \\ \cos\theta \end{pmatrix}.
 \end{equation*}
 In the limit $\theta \to \nicefrac{\pi}{ 2}$, this model reduces to a $D_{\infty h}$ system, with a center of inversion.
 
-\begin{scheme}[!ht]
-	\centering
+\begin{figure}[!ht]
 	\begin{tikzpicture}
 		\begin{scope}
 			\draw[-latex,thick] (0,0) -- +(0,2) node[above]{$z$};
@@ -275,10 +275,10 @@ In the limit $\theta \to \nicefrac{\pi}{ 2}$, this model reduces to a $D_{\infty
 	\end{tikzpicture}
 	\caption{Representation of the $\theta$-dependent charge-transfer dipoles ($\mu_{CT}$) in the 3-state (left) and 4-state (right) models.}
 	\label{sc:mu}
-\end{scheme}
+\end{figure}
 
-\paragraph{Four-state $C_{3v}$ system.}  
-This model consists of three charge transfer (CT) states arranged at \SI{120}{\degree} intervals in the $xy$-plane, with the first dipole aligned along the $y$-axis. Additionally, each dipole forms an angle $\theta \in [0, \nicefrac{\pi}{2}]$ with the $z$-axis, as illustrated in Scheme~\ref{sc:mu}. The dipole moments are therefore given by:  
+\subsubsection{Four-state $C_{3v}$ system.}  
+This model consists of three charge transfer (CT) states arranged at \SI{120}{\degree} intervals in the $xy$-plane, with the first dipole aligned along the $y$-axis. Additionally, each dipole forms an angle $\theta \in [0, \nicefrac{\pi}{2}]$ with the $z$-axis, as illustrated in Fig.~\ref{sc:mu}. The dipole moments are therefore given by:  
 \begin{equation*}
 	\vec{\mu}_{CT,1} = \mu_{CT} \begin{pmatrix} 0 \\ \sin\theta \\ \cos\theta \end{pmatrix},  
 	\quad  
@@ -286,7 +286,7 @@ This model consists of three charge transfer (CT) states arranged at \SI{120}{\d
 \end{equation*}
 In the limit  $\theta \to \nicefrac{\pi}{ 2}$, this model reduces to a $D_{3h}$ system.
 
-\paragraph{Five-state $T_d$ system.}  
+\subsubsection{Five-state $T_d$ system.}  
 For completeness, the $T_d$ geometry is also considered \cite{choNonlinearOpticalProperties2002}. In this contribution, the corresponding CT dipole moments are (arbitrarily) defined as:  
 \begin{align*}
 	\vec{\mu}_{CT,1} &= \mu_{CT} \frac{\sqrt{3}}{3} \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix},  
@@ -309,9 +309,10 @@ with the corresponding decomposition summarized in Table~\ref{tab:dec} (the full
 Certain components exhibit very similar expressions across different systems, leading to comparable $m_{CT}$ dependencies. This is the case for $\beta_{zzz}$ in the VB-$n$CT models for $n\in[1,3]$, as well as $\beta_{yyy}$ and $\beta_{(xyz)}$ for the VB-3CT and VB-4CT models, respectively. 
 
 \begin{table}
-	\centering
+	
+	\caption{Decomposition of the non-zero components into the functions that describe their behavior,  for the different VB-$n$CT models ($n\in[1,4]$).}
+	\label{tab:dec}
 	\begin{tabular}{llll}
-		\toprule
 		&$M(m_{CT})$ & $E(m_{CT}, t, T)$ & $\Theta(\theta)$ \\
 		\midrule
 		\multicolumn{4}{c}{2-state $C_{\infty v}$} \\
@@ -332,31 +333,25 @@ Certain components exhibit very similar expressions across different systems, le
 		\multicolumn{4}{c}{5-states $T_d$} \\
 		\midrule
 		$\tilde\beta_{(xyz)}$ & $ (1+m_{CT})$ & $\Delta E_{0e}^{-2}$ & \\
-		\bottomrule
 	\end{tabular}
-	\caption{Decomposition of the non-zero components into the functions that describe their behavior,  for the different VB-$n$CT models ($n\in[1,4]$).}
-	\label{tab:dec}
 \end{table}
-
-\clearpage
 
 \subsection{Evolution of the response with the symmetry}
 
 Then, the evolution of the different invariants with the symmetry of the system are broadly addressed.
-The evolution of $\tilde\beta_{SHS}$ is shown in Fig.~\ref{fig:beta}. To present the various results in a single graph, the values are plotted along a pathway illustrated in Scheme~\ref{sc:symmetry}. This pathway represents a continuous transformation, starting from the VB-CT model and gradually adjusting the $\mu_{CT}$ values and $\theta$ angle to transition to the VB-4CT model.
+The evolution of $\tilde\beta_{SHS}$ is shown in Fig.~\ref{fig:beta}. To present the various results in a single graph, the values are plotted along a pathway illustrated in Fig.~\ref{sc:symmetry}. This pathway represents a continuous transformation, starting from the VB-CT model and gradually adjusting the $\mu_{CT}$ values and $\theta$ angle to transition to the VB-4CT model.
 
 \begin{figure}[!h]
-	\includegraphics[width=.8\linewidth]{Figure2}
+	\includegraphics[width=.8\linewidth]{Figure5}
 	\caption{Evolution of $\tilde \beta_{SHS}$ (top, unitless) and $DR_{SHS}$ (bottom) as a function of the symmetry of the system and the charge transfer character of the ground state ($m_{CT}$), with $T=t/2$.}
 	\label{fig:beta}
 \end{figure}
 
-\begin{scheme}
-	\centering
-	\includegraphics[width=.8\linewidth]{Scheme4}
+\begin{figure}
+	\includegraphics[width=.8\linewidth]{Figure6}
 	\caption{Set of transformations for the 2-state to 5-state systems explored in this article. The notation ``$ks$" ($k \in [2,5]$) represents a $k$-state system, corresponding to a VB-$(k-1)$CT model (the CT dipoles, $\vec\mu_{CT}$, are indicated by blue arrows). The notation "$ks^\star$" refers to a $k$-state model in which one of its $\vec\mu_{CT} = \vec 0$ (indicated by a dashed line).  Additionally, ``$ks_x$" ($k=3,4$ and $x \in [0,1]$) denotes a 3- or 4-state model with $\theta = \frac{x\pi}{2}$. Thus, a $ks^\star \to ks$ symmetry transition corresponds to an increase in the initially missing $\mu_{CT}$, leading to higher symmetry. Meanwhile, a $ks_1 \to ks_0$ transition corresponds to a decrease in $\theta$, ultimately resulting in a $C_{\infty v}$ symmetry where all CT dipoles are parallel.}
 	\label{sc:symmetry}
-\end{scheme}
+\end{figure}
 
 
 Looking at Fig.~\ref{fig:beta}, four main trends can be identified: \begin{inparaenum}[(i)]
@@ -371,21 +366,21 @@ Specifically, for $m_{CT} = 0.75$, the following ordering of responses is observ
 \end{align}
 This trend persists at lower $m_{CT}$ values, albeit with reduced values and differences between the symmetries. For $m_{CT} < -0.5$, the $\tilde\beta_{SHS}$ values tend to converge and become nearly indistinguishable across symmetries.
 
-A decomposition into the dipolar and octupolar components (Fig.~\ref{fig:betaJ}) provides further insight. On the one hand, large $\tilde\beta_{SHS}$ values are generally associated with dominant octupolar contributions (whose curves almost mirror the $\tilde\beta_{SHS}$ evolution), consistent with the findings of Zyss\cite{zyssMolecularEngineeringImplications1993}. Such systems also exhibit low depolarization ratios (DR$_{SHS}$), approaching the octupolar limit of $\nicefrac{3}{2}$. On the other hand, systems with strong dipolar character, namely $C_{\infty v}$ and $C_{2v}$ symmetries which correspond to the VB-CT and VB-2CT models, display significant $\tilde\beta_{SHS}$ values at moderate $m_{CT}$. This behavior is well-known in the context of the VB-CT model\cite{barzoukasTwostateDescriptionHyper1996}, which reaches a maximum response at $m_{CT} = \pm\frac{\sqrt{5}}{5}$.
+A decomposition into the dipolar and octupolar components (Fig.~\ref{fig:betaJ}) provides further insight. On the one hand, large $\tilde\beta_{SHS}$ values are generally associated with dominant octupolar contributions (whose curves almost mirror the $\tilde\beta_{SHS}$ evolution), consistent with the findings of Zyss \cite{zyssMolecularEngineeringImplications1993}. Such systems also exhibit low depolarization ratios (DR$_{SHS}$), approaching the octupolar limit of $\nicefrac{3}{2}$. On the other hand, systems with strong dipolar character, namely $C_{\infty v}$ and $C_{2v}$ symmetries which correspond to the VB-CT and VB-2CT models, display significant $\tilde\beta_{SHS}$ values at moderate $m_{CT}$. This behavior is well-known in the context of the VB-CT model \cite{barzoukasTwostateDescriptionHyper1996}, which reaches a maximum response at $m_{CT} = \pm\frac{\sqrt{5}}{5}$.
 
 \begin{figure}[!h]
-\includegraphics[width=.8\linewidth]{Figure3}
+\includegraphics[width=.8\linewidth]{Figure7}
 \caption{Evolution of the reduced rotational invariants of the first hyperpolarizability tensor ($|\tilde \beta_{J=1}|^2$ and $|\tilde \beta_{J=3}|$, both unitless) as a function of the symmetry of the system and the charge transfer character of the ground state ($m_{CT}$), with $T=t/2$.}
 \label{fig:betaJ}
 \end{figure}
 
-The behavior of the VB-2CT model is more complex to interpret, as it also depends on the angle $\theta$. Two representative examples are shown in Fig.~\ref{fig:3sttheta}, which illustrate that the maximum of $\tilde\beta_{SHS}$ occurs at positive $m_{CT}$ values and around $\theta \approx \SI{54.9}{\degree}$. This angle closely matches the maximum of the function $\sin^2\theta\cos\theta$, which is located at $\theta = \tan^{-1}(\sqrt{2}) \approx \SI{54.72}{\degree}$. This observation suggests that, among the two nonzero and independent tensor components in this model [$\beta_{zzz}$ and $\beta_{(zxx)} $, Table \ref{tab:dec}], $\beta_{(zxx)} \propto \sin^2\theta\cos\theta / (\Delta E_{ge}\,\Delta E_{gf})$ is the dominant one in this region.  This is in agreement with the observation of Yang and its co-worker\cite{yangLargeOffDiagonalContribution2003} for these systems.
+The behavior of the VB-2CT model is more complex to interpret, as it also depends on the angle $\theta$. Two representative examples are shown in Fig.~\ref{fig:3sttheta}, which illustrate that the maximum of $\tilde\beta_{SHS}$ occurs at positive $m_{CT}$ values and around $\theta \approx \SI{54.9}{\degree}$. This angle closely matches the maximum of the function $\sin^2\theta\cos\theta$, which is located at $\theta = \tan^{-1}(\sqrt{2}) \approx \SI{54.72}{\degree}$. This observation suggests that, among the two nonzero and independent tensor components in this model [$\beta_{zzz}$ and $\beta_{(zxx)} $, Table \ref{tab:dec}], $\beta_{(zxx)} \propto \sin^2\theta\cos\theta / (\Delta E_{ge}\,\Delta E_{gf})$ is the dominant one in this region.  This is in agreement with the observation of Yang and its co-worker \cite{yangLargeOffDiagonalContribution2003} for these systems.
 The influence of the parameter $T$ is also evident: smaller values of $T$ yield larger $\tilde\beta_{SHS}$ amplitudes, with the peak shifting to higher $m_{CT}$ values. This behavior is consistent with the inverse of the transition energies, since $\Delta E_{0e}^{-1}\,\Delta E_{0f}^{-1} \propto T^{-1}$. This evolution will be further investigated below.
 
 
 \begin{figure}[!h]
-	\includegraphics[width=.7\linewidth]{Figure4a}
-	\includegraphics[width=.7\linewidth]{Figure4b}
+	\includegraphics[width=.7\linewidth]{Figure8a}\\
+	\includegraphics[width=.7\linewidth]{Figure8b}
 	\caption{Evolution of $\tilde\beta_{SHS}$  of the VB-2CT with $m_{CT}$ and $\theta$, with $T=t/2$ (top) and $T=t/10$ (bottom). Dashed line gives the approximate position of the maximum, found by taking the maxima in each heatmap.}
 	\label{fig:3sttheta}
 \end{figure}
@@ -401,7 +396,8 @@ Although these approximations quickly underestimate the values for $m_{CT} < 1$ 
 Moreover, these results indicate that achieving large responses requires minimizing $T$ (and, to some extent, $t$).
 
 \begin{figure}[!h]
-	\includegraphics[width=.6\linewidth]{Figure5}
+	
+	\includegraphics[width=.6\linewidth]{Figure9}
 	\caption{Evolution of $\tilde\beta_{SHS}$ for high-symmetry systems for $m_{CT}\to 1$, with $T=t/2$. Dashed line is an approximation obtained with a series around $m_{CT}=1$ [Eqs.~\eqref{eq:highsym4}-\eqref{eq:highsym5}].}
 	\label{fig:series}
 \end{figure}
@@ -411,12 +407,13 @@ Moreover, these results indicate that achieving large responses requires minimiz
 To extend this analysis to the $C_{3v}$ systems, one can examine the individual tensor components (reported in the SI) near $\theta = \SI{90}{\degree}$, setting $m_{CT} = 1$. From Table \ref{tab:dec},the only nonzero components is $\beta_{yyy} = -\beta_{(yxx)} \propto \sin^3\theta$, as illustrated in Fig.~\ref{fig:theta}, where the approximate expressions from Eq.~\eqref{eq:highsym4}, multiplied by the corresponding sine dependencies gives the $\theta$ evolution. This confirms that for this system, $\theta=\SI{90}{\degree}$ result in an extrema.
 
 \begin{figure}[!h]
-\includegraphics[width=.6\linewidth]{Figure6}
+	
+\includegraphics[width=.6\linewidth]{Figure10}
 \caption{Evolution of $\tilde\beta_{SHS}$ of  the VB-3CT model with $\theta$ at $m_{CT}= 1$, with $T=t/2$.}
 \label{fig:theta}
 \end{figure}
 
-Then, and since the seminal work of Oudar and Chemla\cite{oudarHyperpolarizabilitiesNitroanilinesTheir1977} on the first hyperpolarizability, the VB-CT model has been instrumental in elucidating the structure–NLO activity relationship in materials\cite{luValenceBondChargeTransferModel1994,barzoukasTwostateDescriptionHyper1996,barzoukasTWOFORMDESCRIPTIONPUSHPULL1996,blanchard-desceTwoformTwostateAnalysis1998a}. As previously mentioned, the extrema are located at $m_{CT} = \pm\frac{\sqrt{5}}{5}$. Accordingly, the values of $\tilde\beta_{SHS}$ at these maxima are:
+Then, and since the seminal work of Oudar and Chemla \cite{oudarHyperpolarizabilitiesNitroanilinesTheir1977} on the first hyperpolarizability, the VB-CT model has been instrumental in elucidating the structure–NLO activity relationship in materials \cite{luValenceBondChargeTransferModel1994,barzoukasTwostateDescriptionHyper1996,barzoukasTWOFORMDESCRIPTIONPUSHPULL1996,blanchard-desceTwoformTwostateAnalysis1998a}. As previously mentioned, the extrema are located at $m_{CT} = \pm\frac{\sqrt{5}}{5}$. Accordingly, the values of $\tilde\beta_{SHS}$ at these maxima are:
 \begin{align}
 	\tilde\beta_{SHS}[C_{\infty v}, m_{CT}=\pm\nicefrac{\sqrt{5}}{5}] = \frac{6\sqrt{42}}{875} \label{eq:2stmax}
 \end{align}
@@ -429,17 +426,16 @@ Summarizing the observations so far, one gets, for a given value of $\xi=\nicefr
 \end{align}
 This is one of the main result of this paper, which links the theoretical upper bonds for SHS first hyperpolarizability invariants of different symmetries.
 
-Finally, although it is not possible to derive an analytical expression for the maximum of $\beta_{SHS}$ in the VB-2CT model\cite{yangLargeOffDiagonalContribution2003}, it can be investigated numerically (Fig.~\ref{fig:3stmax}). The results indicate that for small values of $\xi = T/t$, $\beta_{SHS}$ reaches a maximum near $m_{CT} \approx 1$ and $\theta \approx \SI{54.7}{\degree}$, which corresponds to DR$_{SHS}=\nicefrac{27}{11}\approx 2.45$. This situation, when $m_{CT} > 0$, corresponds to a regime where $\beta_{(zxx)}$ dominates, particularly through its $\Delta E_{ge}^{-2}$ contribution (Table \ref{tab:dec}). It should be noted that $m_{CT}$ cannot exactly equal 1, as this would result in $\beta_{zzz} = \beta_{(zxx)} = 0$. Consequently, achieving large $\beta_{SHS}$ values requires a delicate balance between maximizing $m_{CT}$ and minimizing $T$. This numerical analysis nevertheless suggests that the values are, for ideal $\theta$ and $m_{CT}$ values, larger than the maximum predicted for the $C_{\infty v}$ (VB-CT) symmetry [from Eq.~\eqref{eq:2stmax}, $\tilde\beta_{SHS}=0.04$], and that the upper bound for $\tilde\beta_{SHS}$ is approximately 0.225 for $m_{CT}\in(0.97,0.98]\land \theta = \tan^{-1}(\sqrt{2}) \land \xi \leq \num{e3}$. However, in this case, the predicted first hyperpolarizability responses for the $C_{3v}$ (VB-3CT) and $T_d$  (VB-4CT) symmetries are orders of magnitude larger.
+Finally, although it is not possible to derive an analytical expression for the maximum of $\beta_{SHS}$ in the VB-2CT model \cite{yangLargeOffDiagonalContribution2003}, it can be investigated numerically (Fig.~\ref{fig:3stmax}). The results indicate that for small values of $\xi = T/t$, $\beta_{SHS}$ reaches a maximum near $m_{CT} \approx 1$ and $\theta \approx \SI{54.7}{\degree}$, which corresponds to DR$_{SHS}=\nicefrac{27}{11}\approx 2.45$. This situation, when $m_{CT} > 0$, corresponds to a regime where $\beta_{(zxx)}$ dominates, particularly through its $\Delta E_{ge}^{-2}$ contribution (Table \ref{tab:dec}). It should be noted that $m_{CT}$ cannot exactly equal 1, as this would result in $\beta_{zzz} = \beta_{(zxx)} = 0$. Consequently, achieving large $\beta_{SHS}$ values requires a delicate balance between maximizing $m_{CT}$ and minimizing $T$. This numerical analysis nevertheless suggests that the values are, for ideal $\theta$ and $m_{CT}$ values, larger than the maximum predicted for the $C_{\infty v}$ (VB-CT) symmetry [from Eq.~\eqref{eq:2stmax}, $\tilde\beta_{SHS}=0.04$], and that the upper bound for $\tilde\beta_{SHS}$ is approximately 0.225 for $m_{CT}\in(0.97,0.98]\land \theta = \tan^{-1}(\sqrt{2}) \land \xi \leq \num{e3}$. However, in this case, the predicted first hyperpolarizability responses for the $C_{3v}$ (VB-3CT) and $T_d$  (VB-4CT) symmetries are orders of magnitude larger.
 
-\begin{figure}
-	\centering
-	\includegraphics[width=.49\linewidth]{Figure7}
+\begin{figure}[!h]
+	\includegraphics[width=.49\linewidth]{Figure11}
 	\caption{Evolution of $\tilde\beta_{SHS}$ (top) and of its maximum (found numerically, blue curve in the top and middle panels), with $\xi = T/t$, for the VB-2CT model, and of the position of this maximum (bottom).}
 	\label{fig:3stmax}
 \end{figure}
 
-
 \clearpage
+
 \section{Further discussions, conclusions, and outlooks}
 
 In this paper, VB-$n$CT models ($n \in [1,4]$) were investigated to assess the influence of symmetry and electronic structure parameters, particularly the ground-state charge-transfer character (quantified by the VB-CT mixing parameter $m_{CT}$), on the NLO response. Special attention was given to quantities accessible via second and third harmonic scattering techniques, namely $\beta_{SHS}$ and its corresponding depolarization ratio.
@@ -448,28 +444,30 @@ The results confirm that, in agreement with previous studies, a large $m_{CT}$ v
 In all scenarios, ensuring a large $\mu_{CT}$ value and achieving a small ratio $\xi = T/t$ is critical for maximizing the NLO response, which, in practical terms, requires minimizing the first excitation energy $\Delta E_{ge}$.\textcolor{red}{(... and end up with a quasi-degenerated case?)}
 
 While feasible in principle, the different parameters ($t$, $T$, $m_{CT}$, $\mu_{CT}$) are generally difficult to extract directly from experimental measurements. Among them, $\mu_{CT}$ can be inferred from UV/Vis absorption spectra, but the others are less accessible. As a result, theoretical calculations are of primary importance for the design of new compounds with enhanced NLO responses.
-For instance, estimating $t$ or $T$ can be achieved through projection methods, which involve partitioning the electronic Hamiltonian. A recent application of such approaches to intramolecular donor-acceptor systems can be found in the work of Gillet \emph{et al.} \cite{gilletElectronicCouplingCalculations2016}, following the methodology introduced by Baumeier \emph{et al.} \cite{baumeierDensityfunctionalBasedDetermination2010}. More empirical models are also widely used: for example, the electron-in-a-box model, with its characteristic $\Delta E \propto L^{-2}$ dependence (where $L$ is the box size), predicts that increasing the length of a $\pi$-conjugated pathway (a common strategy to enhance NLO responses) leads to a decrease in $t$, up to a given point\cite{luValenceBondChargeTransferModel1994}.
+For instance, estimating $t$ or $T$ can be achieved through projection methods, which involve partitioning the electronic Hamiltonian. A recent application of such approaches to intramolecular donor-acceptor systems can be found in the work of Gillet \emph{et al.} \cite{gilletElectronicCouplingCalculations2016}, following the methodology introduced by Baumeier \emph{et al.} \cite{baumeierDensityfunctionalBasedDetermination2010}. More empirical models are also widely used: for example, the electron-in-a-box model, with its characteristic $\Delta E \propto L^{-2}$ dependence (where $L$ is the box size), predicts that increasing the length of a $\pi$-conjugated pathway (a common strategy to enhance NLO responses) leads to a decrease in $t$, up to a given point \cite{luValenceBondChargeTransferModel1994}.
 More generally, both $t$ and $T$ are dominated by electrostatic interactions at large intermolecular separations and therefore decrease with distance. For $T$ in particular, Förster theory can be used to approximate interactions between CT states via dipole-dipole coupling, leading to $T \propto r^{-3}$, where $r$ is the distance between dipoles \cite{sistoInitioNonadiabaticDynamics2014}.
 Finally, $m_{CT}$ (or equivalently $\ell_{CT}$) has been linked to structural parameters such as the bond length alternation (BLA), as reported by Barzoukas \emph{et al.} \cite{barzoukasTWOFORMDESCRIPTIONPUSHPULL1996,barzoukasTwostateDescriptionHyper1996}, with a similarly strong correlation observed with the bond order alternation (BOA) \cite{dellaiDynamicEffectsNonlinear2024}.
 
-In practice, achieving the ideal conditions explored in this study remains a significant challenge. One major difficulty is that real compounds are rarely perfectly symmetric and often possess multiple CT excited states of importance\cite{zhangTheoreticalInvestigationFirst2013}, both of which can impact their NLO responses. Furthermore, obtaining large $m_{CT}$ values requires a delicate balance between donor and acceptor strengths \cite{beaujeanUnravelingSymmetryEffects2022,postilsSecondorderNonlinearOptical2024}, which is not easily achieved synthetically.
+In practice, achieving the ideal conditions explored in this study remains a significant challenge. One major difficulty is that real compounds are rarely perfectly symmetric and often possess multiple CT excited states of importance \cite{zhangTheoreticalInvestigationFirst2013}, both of which can impact their NLO responses. Furthermore, obtaining large $m_{CT}$ values requires a delicate balance between donor and acceptor strengths \cite{beaujeanUnravelingSymmetryEffects2022,postilsSecondorderNonlinearOptical2024}, which is not easily achieved synthetically.
 While VB-CT models associated with quasi-one-dimensional compounds have been highly successful \cite{bourhillExperimentalDemonstrationDependence1994,daltonOrganicElectroOpticsPhotonics2015,wuHighperformanceOrganicSecond2020} and continue to drive the field forward \cite{dalton25YearsOrganic2019,dubuisNonlinearOpticalResponses2023,dellaiDynamicEffectsNonlinear2024}, octupolar systems are still comparatively less common, although the present work reaffirms their relevance. Hopefully, since the seminal contributions of Zyss \cite{zyssMolecularEngineeringImplications1993}, a wide range of carbon-based architectures have been explored, including $C_{2v}$-like \cite{yangLargeOffDiagonalContribution2003,castetSecondorderNonlinearOptical2021,postilsSecondorderNonlinearOptical2024} and octupolar systems \cite{choElementaryDescriptionNonlinear1998,panjaSumoverstateSchemeAnalysis2010,beaujeanMultiStateSecondOrderNonlinear2022}, offering numerous powerful design strategies.
 Beyond purely organic molecules, organometallic compounds present another powerful avenue, leveraging a variety of low-energy charge-transfer processes, such as metal-to-ligand charge transfer (MLCT). Among these, ruthenium- and iron-based complexes have been the most extensively studied \cite{coeDevelopingIronRuthenium2013,ashcroftMolecularEngineeringOrganic2019}, though other metals have also been successfully incorporated into NLO-active materials \cite{costesSynthesisCrystalStructures2005,lamereSynthesisCharacterizationNonlinear2006,lacroixSecondorderNonlinearOptics2016}. Here, different ligands coordinated to the metal center enable fine-tuning of the electronic properties and facilitate access to a wide range of molecular symmetries \cite{ashcroftMolecularEngineeringOrganic2019,beaujeanUnravelingSymmetryEffects2022,hoodSynthesisOpticalNonlinear2024}. Metal-organic frameworks (MOFs) also fall within this class of materials and, when carefully designed, can exhibit remarkable NLO properties \cite{medishettyNonlinearOpticalProperties2017,chengNonlinearOpticalProperties2021}.
 
 
+\begin{conflictofinterest}
+	The authors have no conflict of interest to disclose.
+\end{conflictofinterest}
 
-\begin{acknowledgement}
+\begin{funding}
 	This work was supported by the Excellence of Science (EOS) programme  ECOBAT (EOS No. 40007515). 
-\end{acknowledgement}
+\end{funding}
 
-\begin{suppinfo}
-	For each VB-$n$CT model ($n\in[1,4]$): \begin{inparaenum}[i)]
+\articlenote{\textbf{Supplementary Material:} For each VB-$n$CT model ($n\in[1,4]$): \begin{inparaenum}[i)]
 		\item the expression for all transition and excited state dipole moments,
 		\item the corresponding expression for all non-null tensor components, and
 		\item the expression of the tensor invariants.
-	\end{inparaenum}
-\end{suppinfo}
+	\end{inparaenum}}
+	
 
-
+\bibliographystyle{unsrt}
 \bibliography{biblio}
 \end{document}

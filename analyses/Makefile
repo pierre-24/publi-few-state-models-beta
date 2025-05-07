@@ -1,14 +1,14 @@
 all: main SI
 
 main:
-	python3 plot_exci.py -o ../Figure1.pdf
-	python3 plot_sym_beta_SHS.py -o ../Figure2.pdf
-	python3 plot_sym_beta_Jisq.py -o ../Figure3.pdf
-	python3 plot_3s_heatmap.py -o ../Figure4a.pdf -T 0.5
-	python3 plot_3s_heatmap.py -o ../Figure4b.pdf -T 0.1
-	python3 plot_hs_all.py -o ../Figure5.pdf
-	python3 plot_hs_theta_all.py -o ../Figure6.pdf
-	python3 plot_3s_max.py -o ../Figure7.pdf
+	python3 plot_exci.py -o ../Figure3.pdf
+	python3 plot_sym_beta_SHS.py -o ../Figure5.pdf
+	python3 plot_sym_beta_Jisq.py -o ../Figure7.pdf
+	python3 plot_3s_heatmap.py -o ../Figure8a.pdf -T 0.5
+	python3 plot_3s_heatmap.py -o ../Figure8b.pdf -T 0.1
+	python3 plot_hs_all.py -o ../Figure9.pdf
+	python3 plot_hs_theta_all.py -o ../Figure10.pdf
+	python3 plot_3s_max.py -o ../Figure11.pdf
 
 SI:
 	python3 plot_xs_components.py -S 2 -C "zzz" -o ../FigureS1.pdf
