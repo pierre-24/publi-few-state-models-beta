@@ -36,7 +36,7 @@ for i, xi in enumerate(X):
     print(xi, Y[:, i])
 
 
-figure = plt.figure(figsize=(4, 8))
+figure = plt.figure(figsize=(5, 8))
 axes = figure.subplots(3)
 
 axes[0].plot(Y[0], Y[2])
